@@ -18,7 +18,7 @@ export default function SistemaLayout({ children }) {
           </Link>
 
           <Link href="/reservas" className="menuItem">
-            📅 Reservas
+            <span>📅 Reservas</span>
           </Link>
 
           <Link href="/hospedes" className="menuItem">
