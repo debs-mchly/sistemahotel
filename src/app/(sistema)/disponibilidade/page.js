@@ -1,6 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 
 import styles from "./disponibilidade.module.css";
 
@@ -8,21 +9,56 @@ export default function Disponibilidade() {
 
   const router = useRouter();
 
-  function selecionarQuarto(quarto, categoria, valor) {
+  const [dataEntrada, setDataEntrada] = useState("2024-06-01");
+const [dataSaida, setDataSaida] = useState("2024-06-05");
+const [tipoQuarto, setTipoQuarto] = useState("Todos os tipos");
+const [capacidade, setCapacidade] = useState("2 Pessoas");
+const [consultou, setConsultou] = useState(false);
 
-    const dadosQuarto = {
-      quarto,
-      categoria,
-      valor
-    };
-
-    sessionStorage.setItem(
-      "quartoSelecionado",
-      JSON.stringify(dadosQuarto)
-    );
-
-    router.push("/financeiro/calcular");
+  function consultarDisponibilidade() {
+  if (!dataEntrada || !dataSaida) {
+    alert("Informe a data de entrada e saída.");
+    return;
   }
+
+  if (dataSaida <= dataEntrada) {
+    alert("A data de saída deve ser posterior à entrada.");
+    return;
+  }
+
+  sessionStorage.setItem(
+    "periodoReserva",
+    JSON.stringify({
+      checkIn: dataEntrada,
+      checkOut: dataSaida
+    })
+  );
+
+  setConsultou(true);
+}
+
+  function selecionarQuarto(quarto, categoria, valor) {
+  const periodo =
+    JSON.parse(sessionStorage.getItem("periodoReserva")) || {};
+
+  const reservaAtual = {
+    checkIn: periodo.checkIn,
+    checkOut: periodo.checkOut,
+
+    quarto: {
+      numero: quarto,
+      categoria: categoria,
+      valor: valor
+    }
+  };
+
+  sessionStorage.setItem(
+    "reservaAtual",
+    JSON.stringify(reservaAtual)
+  );
+
+  router.push("/reservas/nova");
+}
 
 
   function novaReserva() {
@@ -100,7 +136,8 @@ export default function Disponibilidade() {
 
             <input
               type="date"
-              defaultValue="2024-06-01"
+              value={dataEntrada}
+            onChange={(e) => setDataEntrada(e.target.value)}
             />
           </div>
 
@@ -112,7 +149,8 @@ export default function Disponibilidade() {
 
             <input
               type="date"
-              defaultValue="2024-06-05"
+              value={dataSaida}
+              onChange={(e) => setDataSaida(e.target.value)}
             />
           </div>
 
@@ -122,7 +160,8 @@ export default function Disponibilidade() {
               Tipo de Quarto
             </label>
 
-            <select>
+            <select value={tipoQuarto}
+                    onChange={(e) => setTipoQuarto(e.target.value)}>
               <option>Todos os tipos</option>
               <option>Standard Single</option>
               <option>Standard Double</option>
@@ -137,16 +176,19 @@ export default function Disponibilidade() {
               Capacidade (Pessoas)
             </label>
 
-            <select>
+            <select value={capacidade}
+                    onChange={(e) => setCapacidade(e.target.value)}>
               <option>2 Pessoas</option>
               <option>1 Pessoa</option>
               <option>3 Pessoas</option>
               <option>4 Pessoas</option>
             </select>
+
           </div>
 
 
-          <button className={styles.searchButton}>
+          <button className={styles.searchButton}
+                  onClick={consultarDisponibilidade}>
             🔍 Consultar
           </button>
 
@@ -154,7 +196,8 @@ export default function Disponibilidade() {
 
       </section>
 
-
+      {consultou && (
+        <>
       {/* RESUMO */}
       <div className={styles.stats}>
 
@@ -465,7 +508,8 @@ export default function Disponibilidade() {
         </div>
 
       </section>
-
+            </>
+      )}
 
       {/* RODAPÉ */}
       <footer className={styles.footer}>

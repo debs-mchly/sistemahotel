@@ -1,5 +1,5 @@
-import quartos from "../../../data/quartos";
-import QuartoCard from "../../../components/quartocard"; 
+import quartos from "../../../../data/quartos";
+import QuartoCard from "../../../../components/quartocard"; 
 import styles from "./quarto.module.css";
 
 export default function Quartos() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import styles from "./calcular.module.css";
 
@@ -9,30 +9,40 @@ export default function CalcularHospedagem() {
 
   const router = useRouter();
 
-  const [quarto, setQuarto] = useState(null);
+  const [reserva] = useState(() => {
+  if (typeof window === "undefined") {
+    return {};
+  }
 
-  const [desconto, setDesconto] = useState(0);
+  const dados = sessionStorage.getItem("reservaAtual");
 
-  const [imposto, setImposto] = useState(5);
+  return dados ? JSON.parse(dados) : {};
+});
 
+const quarto = reserva.quarto;
+const [desconto, setDesconto] = useState(0);
+const [imposto, setImposto] = useState(5);
 
-  useEffect(() => {
+  const valorDiaria = Number(quarto?.valor || 0);
 
-    const dados = sessionStorage.getItem(
-      "quartoSelecionado"
-    );
+const noites = (() => {
+  if (!reserva.checkIn || !reserva.checkOut) {
+    return 0;
+  }
 
-    if (dados) {
-        // eslint-disable-next-line react-hooks/set-state-in-effect
-      setQuarto(JSON.parse(dados));
-    }
+  const entrada = new Date(reserva.checkIn);
+  const saida = new Date(reserva.checkOut);
 
-  }, []);
+  const diferenca =
+    saida.getTime() - entrada.getTime();
 
-
-  const valorDiaria = quarto?.valor || 350;
-
-  const noites = 4;
+  return Math.max(
+    0,
+    Math.ceil(
+      diferenca / (1000 * 60 * 60 * 24)
+    )
+  );
+})();
 
   const subtotal = valorDiaria * noites;
 
@@ -50,20 +60,24 @@ export default function CalcularHospedagem() {
 
 
   function continuarReserva() {
+  const dadosAtuais = {
+    ...reserva,
 
-    sessionStorage.setItem(
-      "valorHospedagem",
-      JSON.stringify({
-        subtotal,
-        desconto: descontoValor,
-        imposto: impostoValor,
-        total
-      })
-    );
+    financeiro: {
+      subtotal,
+      desconto: descontoValor,
+      imposto: impostoValor,
+      total
+    }
+  };
 
-    router.push("/reservas");
+  sessionStorage.setItem(
+    "reservaAtual",
+    JSON.stringify(dadosAtuais)
+  );
 
-  }
+  router.push("/reservas/sucesso");
+}
 
 
   return (
@@ -163,31 +177,11 @@ export default function CalcularHospedagem() {
                   Categoria de Quarto
                 </label>
 
-                <select
-                  value={
-                    quarto?.categoria ||
-                    "Standard Double"
-                  }
-                  onChange={() => {}}
-                >
-
-                  <option>
-                    Standard Single
-                  </option>
-
-                  <option>
-                    Standard Double
-                  </option>
-
-                  <option>
-                    Deluxe Suite
-                  </option>
-
-                  <option>
-                    Master Suite
-                  </option>
-
-                </select>
+                <input
+                  type="text"
+                  value={quarto?.categoria || ""}
+                  readOnly
+                />
 
               </div>
 
