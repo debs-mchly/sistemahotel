@@ -1,0 +1,361 @@
+.page {
+  min-height: 100vh;
+  background: #eef3f8;
+  color: #263342;
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 22px 50px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   CABEÇALHO
+========================= */
+
+.header {
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 13px 1px 10px;
+  box-sizing: border-box;
+}
+
+.breadcrumb {
+  display: flex;
+  gap: 5px;
+  font-size: 9px;
+  color: #83909e;
+  margin-bottom: 4px;
+}
+
+.breadcrumb strong {
+  color: #8f725f;
+}
+
+.header h1 {
+  margin: 0;
+  color: #283544;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.header p {
+  margin: 4px 0 0;
+  color: #8996a3;
+  font-size: 9px;
+}
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 4px 7px 4px 13px;
+  border: 1px solid #e0e6eb;
+  border-radius: 20px;
+  background: white;
+  color: #6d7884;
+  font-size: 9px;
+}
+
+.avatar {
+  width: 27px;
+  height: 27px;
+  border-radius: 50%;
+  background: #967965;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+}
+
+/* =========================
+   ETAPAS
+========================= */
+
+.steps {
+  height: 41px;
+  background: white;
+  border: 1px solid #dfe6ec;
+  border-radius: 9px;
+  display: flex;
+  align-items: center;
+  padding: 0 13px;
+  box-sizing: border-box;
+  margin-bottom: 13px;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #9aa5af;
+  font-size: 9px;
+  white-space: nowrap;
+}
+
+.stepNumber {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #edf1f5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: 700;
+  color: #8b98a5;
+}
+
+.activeStep {
+  color: #364452;
+}
+
+.activeStep .stepNumber {
+  background: #947762;
+  color: white;
+}
+
+.stepLine {
+  height: 1px;
+  width: 50px;
+  background: #e2e7eb;
+  margin: 0 13px;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.card {
+  background: white;
+  border: 1px solid #dfe6ec;
+  border-radius: 9px;
+  padding: 14px 15px 17px;
+  box-sizing: border-box;
+}
+
+/* =========================
+   CABEÇALHO CARD
+========================= */
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e7ebef;
+}
+
+.sectionIcon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background: #eef8f4;
+  color: #15b78b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.cardHeader div:last-child {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.cardHeader h2 {
+  margin: 0;
+  color: #354351;
+  font-size: 11px;
+}
+
+.cardHeader p {
+  margin: 0;
+  color: #9aa5af;
+  font-size: 8px;
+}
+
+/* =========================
+   BUSCA HÓSPEDE
+========================= */
+
+.searchGuest {
+  margin-top: 12px;
+}
+
+.searchGuest label {
+  display: block;
+  margin-bottom: 5px;
+  color: #45515d;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.searchInput {
+  width: 100%;
+  height: 29px;
+  border: 1px solid #dce4eb;
+  border-radius: 5px;
+  background: white;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 9px;
+  box-sizing: border-box;
+}
+
+.searchInput span {
+  color: #8493a0;
+  font-size: 14px;
+}
+
+.searchInput input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #53616e;
+  font-size: 8px;
+}
+
+.searchInput input::placeholder {
+  color: #a6afb8;
+}
+
+/* =========================
+   FORMULÁRIO
+========================= */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  color: #3d4a57;
+  font-size: 8px;
+  font-weight: 700;
+}
+
+.field label span {
+  color: #a87961;
+}
+
+.field input {
+  width: 100%;
+  height: 29px;
+  box-sizing: border-box;
+  border: 1px solid #dce4eb;
+  border-radius: 5px;
+  background: #fbfcfd;
+  padding: 0 9px;
+  outline: none;
+  color: #556370;
+  font-size: 8px;
+}
+
+.field input:focus {
+  border-color: #a58a76;
+  background: white;
+  box-shadow: 0 0 0 2px rgba(165, 138, 118, 0.08);
+}
+
+.field input::placeholder {
+  color: #9da8b2;
+}
+
+/* =========================
+   BOTÕES
+========================= */
+
+.actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 17px;
+}
+
+.backButton {
+  height: 29px;
+  padding: 0 17px;
+  border: 1px solid #dfe6eb;
+  border-radius: 5px;
+  background: transparent;
+  color: #73818e;
+  font-size: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  background: white;
+}
+
+.nextButton {
+  height: 30px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 5px;
+  background: #927461;
+  color: white;
+  font-size: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nextButton:hover {
+  background: #806252;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 800px) {
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    overflow-x: auto;
+  }
+
+  .stepLine {
+    width: 25px;
+    margin: 0 8px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page {
+    padding: 0 10px 30px;
+  }
+
+  .userArea {
+    display: none;
+  }
+
+  .header h1 {
+    font-size: 17px;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .backButton,
+  .nextButton {
+    width: 100%;
+  }
+}

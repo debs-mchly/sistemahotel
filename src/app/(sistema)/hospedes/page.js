@@ -1,27 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./hospedes.module.css";
 
 export default function Hospedes() {
-  const [hospedes] = useState(() => {
-    if (typeof window === "undefined") {
-      return [];
-    }
+  const router = useRouter();
 
-    const dados = sessionStorage.getItem("hospedes");
-
-    return dados ? JSON.parse(dados) : [];
-  });
-
-  const [busca, setBusca] = useState("");
-
-  const hospedesFiltrados = hospedes.filter((hospede) =>
-    hospede.nome?.toLowerCase().includes(busca.toLowerCase()) ||
-    hospede.cpf?.includes(busca) ||
-    hospede.email?.toLowerCase().includes(busca.toLowerCase())
-  );
+  const hospedes = [
+    {
+      nome: "joao",
+      cpf: "341.984.561-50",
+      telefone: "3611986021",
+      email: "joao@email.com",
+    },
+  ];
 
   return (
     <div className={styles.page}>
@@ -29,44 +21,33 @@ export default function Hospedes() {
       {/* BARRA SUPERIOR */}
       <header className={styles.topbar}>
 
-        <div className={styles.topbarLeft}>
-          <span>🏨 Hotel Grand Plaza</span>
-          <span className={styles.separator}>/</span>
-          <span>Central de Reservas</span>
+        <div className={styles.hotel}>
+          <span className={styles.hotelIcon}>▣</span>
+          <strong>Hotel Grand Plaza</strong>
+          <span className={styles.topDivider}>/ Central de Reservas</span>
         </div>
 
-        <div className={styles.topbarRight}>
+        <div className={styles.userArea}>
+          <span className={styles.notification}>♧</span>
 
-          <div className={styles.searchTop}>
-            🔍
-            <span>Buscar hóspedes, quartos...</span>
+          <div className={styles.userInfo}>
+            <strong>Carlos Mendes</strong>
           </div>
 
-          <div className={styles.notification}>
-            🔔
+          <div className={styles.userAvatar}>
+            ◯
           </div>
 
-          <div className={styles.user}>
-            <div>
-              <strong>Carlos Mendes</strong>
-              <span>Gerente de Turno</span>
-            </div>
-          </div>
-
-          <div className={styles.userIcon}>
-            👤
-          </div>
-
+          <span className={styles.arrow}>⌄</span>
         </div>
 
       </header>
 
+
       {/* CABEÇALHO */}
-      <section className={styles.pageHeader}>
+      <section className={styles.hero}>
 
         <div className={styles.breadcrumb}>
-          🏠
-          <span>›</span>
           <span>Hóspedes</span>
           <span>›</span>
           <strong>Cadastrados</strong>
@@ -79,6 +60,7 @@ export default function Hospedes() {
         </p>
 
       </section>
+
 
       {/* CONTEÚDO */}
       <main className={styles.content}>
@@ -96,131 +78,84 @@ export default function Hospedes() {
               </p>
             </div>
 
-            <Link
-              href="/hospedes/novo"
+            {/* BOTÃO NOVO CADASTRO */}
+            <button
+              type="button"
               className={styles.newButton}
+              onClick={() => router.push("/hospedes/novo")}
             >
-              ＋ &nbsp;Novo Cadastro
-            </Link>
+              <span>＋</span>
+              Novo Cadastro
+            </button>
 
           </div>
 
-          {/* CAMPO DE BUSCA */}
-          <div className={styles.searchBox}>
 
-            <span className={styles.searchIcon}>
-              🔍
-            </span>
+          {/* BUSCA */}
+          <div className={styles.searchArea}>
 
-            <input
-              type="text"
-              placeholder="Buscar por nome, CPF ou e-mail..."
-              value={busca}
-              onChange={(e) => setBusca(e.target.value)}
-            />
+            <div className={styles.searchInput}>
+
+              <span>⌕</span>
+
+              <input
+                type="text"
+                placeholder="Buscar por nome, CPF ou e-mail..."
+              />
+
+            </div>
 
           </div>
 
-          {/* TOTAL */}
-          <div className={styles.total}>
-            Total: <strong>{hospedes.length}</strong>
-          </div>
 
           {/* LISTA */}
           <div className={styles.guestList}>
 
-            {hospedesFiltrados.length === 0 ? (
+            {hospedes.map((hospede, index) => (
 
-              <div className={styles.empty}>
+              <div
+                className={styles.guestRow}
+                key={index}
+              >
 
-                <div className={styles.emptyIcon}>
-                  👤
+                <div className={styles.guestAvatar}>
+                  ♙
                 </div>
 
-                <h3>
-                  {hospedes.length === 0
-                    ? "Nenhum hóspede cadastrado"
-                    : "Nenhum resultado encontrado"}
-                </h3>
+                <strong className={styles.guestName}>
+                  {hospede.nome}
+                </strong>
 
-                <p>
-                  {hospedes.length === 0
-                    ? "Cadastre um novo hóspede para começar."
-                    : "Tente pesquisar utilizando outro nome, CPF ou e-mail."}
-                </p>
+                <div className={styles.guestInfo}>
+                  <span>
+                    <strong>CPF:</strong> {hospede.cpf}
+                  </span>
+
+                  <span>
+                    <strong>Telefone:</strong> {hospede.telefone}
+                  </span>
+
+                  <span>
+                    <strong>E-mail:</strong> {hospede.email}
+                  </span>
+                </div>
+
+                <button
+                  type="button"
+                  className={styles.viewButton}
+                >
+                  ◉
+                </button>
 
               </div>
 
-            ) : (
-
-              hospedesFiltrados.map((hospede) => (
-
-                <div
-                  className={styles.guestRow}
-                  key={hospede.id}
-                >
-
-                  <div className={styles.avatar}>
-                    👤
-                  </div>
-
-                  <div className={styles.guestName}>
-                    <strong>{hospede.nome}</strong>
-                  </div>
-
-                  <div className={styles.guestInfo}>
-                    <span className={styles.infoLabel}>
-                      CPF:
-                    </span>
-
-                    <span>
-                      {hospede.cpf}
-                    </span>
-                  </div>
-
-                  <div className={styles.guestInfo}>
-                    <span className={styles.infoLabel}>
-                      Telefone:
-                    </span>
-
-                    <span>
-                      {hospede.telefone}
-                    </span>
-                  </div>
-
-                  <div className={styles.guestInfo}>
-                    <span className={styles.infoLabel}>
-                      E-mail:
-                    </span>
-
-                    <span>
-                      {hospede.email}
-                    </span>
-                  </div>
-
-                  <button
-                    type="button"
-                    className={styles.viewButton}
-                  >
-                    👁
-                  </button>
-
-                </div>
-
-              ))
-
-            )}
+            ))}
 
           </div>
 
         </section>
 
       </main>
-
-      {/* RODAPÉ */}
-      <footer className={styles.footer}>
-        HotelPro Admin v4.2.0 • Sistema de Gestão Hoteleira Profissional
-      </footer>
 
     </div>
   );

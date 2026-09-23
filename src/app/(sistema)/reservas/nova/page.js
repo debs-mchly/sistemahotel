@@ -1,487 +1,338 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import { useState } from "react";
-
-import styles from "../reservas.module.css";
+import { useRouter } from "next/navigation";
+import styles from "./nova.module.css";
 
 export default function NovaReserva() {
   const router = useRouter();
 
-const [reservaAtual] = useState(() => {
-  if (typeof window === "undefined") {
-    return {};
+  const [reserva] = useState(() => {
+    if (typeof window === "undefined") {
+      return null;
+    }
+
+    const dados = sessionStorage.getItem("reservaSelecionada");
+
+    return dados ? JSON.parse(dados) : null;
+  });
+
+  const [nome, setNome] = useState("");
+  const [cpf, setCpf] = useState("");
+  const [email, setEmail] = useState("");
+  const [telefone, setTelefone] = useState("");
+
+  function continuar() {
+    if (!nome || !cpf || !email || !telefone) {
+      alert("Preencha todos os campos obrigatórios.");
+      return;
+    }
+
+    const dadosHospede = {
+      nome,
+      cpf,
+      email,
+      telefone,
+    };
+
+    sessionStorage.setItem(
+      "hospedeReserva",
+      JSON.stringify(dadosHospede)
+    );
+
+    router.push("/reservas/nova/periodo");
   }
-
-  const dados = sessionStorage.getItem("reservaAtual");
-
-  return dados ? JSON.parse(dados) : {};
-});
-
-const [hospedes] = useState(() => {
-  if (typeof window === "undefined") {
-    return [];
-  }
-
-  const dados = sessionStorage.getItem("hospedes");
-
-  return dados ? JSON.parse(dados) : [];
-});
-
-const [hospede, setHospede] = useState(null);
-const [buscaHospede, setBuscaHospede] = useState("");
-
-const hospedesFiltrados = hospedes.filter((cliente) =>
-  cliente.nome.toLowerCase().includes(buscaHospede.toLowerCase()) ||
-  cliente.cpf.includes(buscaHospede) ||
-  cliente.email.toLowerCase().includes(buscaHospede.toLowerCase())
-);
-
-const [checkIn, setCheckIn] = useState(
-  reservaAtual.checkIn || ""
-);
-
-const [checkOut, setCheckOut] = useState(
-  reservaAtual.checkOut || ""
-);
-
-const [adultos, setAdultos] = useState("1");
-const [criancas, setCriancas] = useState("Nenhuma");
-const [observacoes, setObservacoes] = useState("");
-
-  function irParaDisponibilidade() {
-    router.push("/disponibilidade");
-  }
-
-  function cadastrarHospede() {
-    router.push("/hospedes/novo");
-  }
-
-  function avancarParaCalculo() {
-  if (!hospede) {
-    alert("Selecione um hóspede.");
-    return;
-  }
-
-  const reservaAtualizada = {
-    ...reservaAtual,
-    hospede,
-    checkIn,
-    checkOut,
-    adultos,
-    criancas,
-    observacoes
-  };
-
-  sessionStorage.setItem(
-    "reservaAtual",
-    JSON.stringify(reservaAtualizada)
-  );
-
-  router.push("/financeiro/calcular");
-}
 
   return (
     <div className={styles.page}>
 
-      {/* TOPO */}
-      <header className={styles.topbar}>
+      {/* SIDEBAR */}
+      <aside className={styles.sidebar}>
 
-        <div className={styles.hotel}>
-          🏨 <strong>Hotel Grand Plaza</strong>
-        </div>
-
-        <div className={styles.search}>
-          🔍 Buscar hóspedes, quartos...
-        </div>
-
-        <div className={styles.user}>
-          🔔
+        <div className={styles.logo}>
+          <div className={styles.logoIcon}>▦</div>
 
           <div>
-            <strong>Carlos Mendes</strong>
-            <span>Gerente de Turno</span>
+            <strong>Grand Plaza</strong>
+            <span>CENTRAL DE RESERVAS</span>
           </div>
-
-          👤
         </div>
 
-      </header>
+        <nav className={styles.menu}>
 
+          <button
+            type="button"
+            onClick={() => router.push("/dashboard")}
+          >
+            <span>▦</span>
+            Dashboard
+          </button>
 
-      {/* CABEÇALHO */}
-      <section className={styles.pageHeader}>
+          <button
+            type="button"
+            className={styles.active}
+            onClick={() => router.push("/reservas")}
+          >
+            <span>▣</span>
+            Reservas
+          </button>
 
-        <div className={styles.breadcrumb}>
-          🏠　›　Reservas　›　<strong>Nova Reserva</strong>
+          <button
+            type="button"
+            onClick={() => router.push("/hospedes")}
+          >
+            <span>♙</span>
+            Hóspedes
+          </button>
+
+          <button
+            type="button"
+            onClick={() => router.push("/quartos")}
+          >
+            <span>▱</span>
+            Quartos
+          </button>
+
+          <button
+            type="button"
+            onClick={() => router.push("/financeiro")}
+          >
+            <span>▤</span>
+            Financeiro
+          </button>
+
+          <button
+            type="button"
+            onClick={() => router.push("/relatorios")}
+          >
+            <span>⌁</span>
+            Relatórios
+          </button>
+
+        </nav>
+
+        <div className={styles.sidebarBottom}>
+
+          <button type="button">
+            ⚙
+            <span>Configurações</span>
+          </button>
+
+          <button type="button">
+            ⓘ
+            <span>Suporte</span>
+          </button>
+
         </div>
-
-        <h1>Realizar Nova Reserva</h1>
-
-        <p>
-          Configure os detalhes da hospedagem e finalize o checkout administrativo.
-        </p>
-
-      </section>
-
+      </aside>
 
       {/* CONTEÚDO */}
-      <div className={styles.content}>
+      <main className={styles.main}>
 
-        <div className={styles.leftColumn}>
+        {/* TOPO */}
+        <header className={styles.topbar}>
 
-          {/* HÓSPEDE */}
-          <section className={styles.card}>
+          <div className={styles.topHotel}>
+            Hotel Grand Plaza /
+            <span>Central de Reservas</span>
+          </div>
 
-            <div className={styles.sectionTitle}>
+          <div className={styles.admin}>
+            <span>Admin Panel</span>
+            <div className={styles.adminAvatar}>A</div>
+          </div>
 
-              <div className={styles.icon}>
-                👤
-              </div>
+        </header>
 
-              <div>
-                <h2>Dados do Hóspede</h2>
+        {/* CABEÇALHO */}
+        <section className={styles.header}>
 
-                <p>
-                  Identifique o cliente ou realize um cadastro rápido.
-                </p>
-              </div>
+          <div className={styles.breadcrumb}>
+            Reservas
+            <span>›</span>
+            Nova Reserva
+          </div>
 
+          <h1>Realizar Nova Reserva</h1>
+
+          <p>
+            Configure os detalhes da hospedagem e associe um hóspede à reserva.
+          </p>
+
+        </section>
+
+        {/* ETAPAS */}
+        <section className={styles.steps}>
+
+          <div className={`${styles.step} ${styles.stepActive}`}>
+            <span>1</span>
+            <strong>Dados do Hóspede</strong>
+          </div>
+
+          <div className={styles.line}></div>
+
+          <div className={styles.step}>
+            <span>2</span>
+            <strong>Período & Quarto</strong>
+          </div>
+
+          <div className={styles.line}></div>
+
+          <div className={styles.step}>
+            <span>3</span>
+            <strong>Revisão & Confirmar</strong>
+          </div>
+
+        </section>
+
+        {/* CARD */}
+        <section className={styles.card}>
+
+          <div className={styles.cardTitle}>
+
+            <div className={styles.titleIcon}>
+              ♙
             </div>
 
+            <div>
+              <h2>Dados do Hóspede</h2>
 
-            <div className={styles.guestSearch}>
-
-  {hospede ? (
-
-    <div className={styles.guestSelected}>
-
-      <div>
-        <strong>
-          {hospede.nome}
-        </strong>
-
-        <span>
-          CPF: {hospede.cpf} • {hospede.email}
-        </span>
-
-        <small>
-          Telefone: {hospede.telefone}
-        </small>
-      </div>
-
-      <button
-        type="button"
-        onClick={() => {
-          setHospede(null);
-          setBuscaHospede("");
-        }}
-      >
-        Alterar
-      </button>
-
-    </div>
-
-  ) : (
-
-    <>
-      <div className={styles.searchGuestWrapper}>
-
-        <input
-          type="text"
-          placeholder="Buscar por nome, CPF ou e-mail..."
-          value={buscaHospede}
-          onChange={(e) => setBuscaHospede(e.target.value)}
-        />
-
-        {buscaHospede && (
-          <div className={styles.guestResults}>
-
-            {hospedesFiltrados.length > 0 ? (
-
-              hospedesFiltrados.map((cliente) => (
-
-                <button
-                  type="button"
-                  key={cliente.id}
-                  className={styles.guestOption}
-                  onClick={() => {
-                    setHospede(cliente);
-                    setBuscaHospede("");
-                  }}
-                >
-                  <strong>
-                    {cliente.nome}
-                  </strong>
-
-                  <span>
-                    CPF: {cliente.cpf}
-                  </span>
-
-                </button>
-
-              ))
-
-            ) : (
-
-              <div className={styles.guestNoResult}>
-                Nenhum hóspede encontrado.
-              </div>
-
-            )}
+              <p>
+                — Identifique o cliente ou realize um cadastro rápido
+              </p>
+            </div>
 
           </div>
-        )}
 
-      </div>
+          {/* BUSCA */}
+          <div className={styles.searchField}>
 
-      <button
-        type="button"
-        className={styles.registerButton}
-        onClick={cadastrarHospede}
-      >
-        ＋ Cadastrar Novo
-      </button>
-    </>
+            <label>
+              Buscar por Nome, CPF ou E-mail
+            </label>
 
-  )}
+            <div className={styles.searchInput}>
+              <span>⌕</span>
 
-</div>
-
-          </section>
-
-
-          {/* PERÍODO */}
-          <section className={styles.card}>
-
-            <div className={styles.sectionTitle}>
-
-              <div className={styles.icon}>
-                📅
-              </div>
-
-              <div>
-                <h2>Período e Ocupação</h2>
-
-                <p>
-                  Defina as datas da estadia e o número de hóspedes.
-                </p>
-              </div>
-
+              <input
+                type="text"
+                placeholder="Buscar por nome, CPF ou e-mail..."
+              />
             </div>
 
+          </div>
 
-            <div className={styles.fields}>
+          {/* CAMPOS */}
+          <div className={styles.formGrid}>
 
-              <div>
+            <div className={styles.field}>
 
-                <label className={styles.fieldLabel}>
-                  Check-in *
-                </label>
+              <label>
+                Nome Completo <span>*</span>
+              </label>
 
-                <input
-                  type="date"
-                  value={checkIn}
-                  onChange={(e) => setCheckIn(e.target.value)}
+              <input
+                type="text"
+                value={nome}
+                onChange={(e) => setNome(e.target.value)}
+                placeholder="ex. Amanda Silveira"
               />
 
-              </div>
+            </div>
 
+            <div className={styles.field}>
 
-              <div>
+              <label>
+                CPF <span>*</span>
+              </label>
 
-                <label className={styles.fieldLabel}>
-                  Check-out *
-                </label>
-
-                <input
-                  type="date"
-                  value={checkOut}
-                  onChange={(e) => setCheckOut(e.target.value)}
-                />
-
-              </div>
-
-
-              <div>
-
-                <label className={styles.fieldLabel}>
-                  Adultos
-                </label>
-
-                <select
-                  value={adultos}
-                  onChange={(e) => setAdultos(e.target.value)}
-                >
-
-                  <option>1 Adulto</option>
-                  <option>2 Adultos</option>
-                  <option>3 Adultos</option>
-                  <option>4 Adultos</option>
-
-                </select>
-
-              </div>
-
-
-              <div>
-
-                <label className={styles.fieldLabel}>
-                  Crianças
-                </label>
-
-                <select  value={criancas}
-                        onChange={(e) => setCriancas(e.target.value)}>
-
-                  <option>Nenhuma</option>
-                  <option>1 Criança</option>
-                  <option>2 Crianças</option>
-                  <option>3 Crianças</option>
-
-                </select>
-
-              </div>
+              <input
+                type="text"
+                value={cpf}
+                onChange={(e) => setCpf(e.target.value)}
+                placeholder="000.000.000-00"
+              />
 
             </div>
 
-          </section>
+            <div className={styles.field}>
 
+              <label>
+                E-mail <span>*</span>
+              </label>
 
-          <section className={styles.card}>
-
-  <div className={styles.sectionTitle}>
-
-    <div className={styles.icon}>
-      🛏️
-    </div>
-
-    <div>
-      <h2>Quarto Selecionado</h2>
-
-      <p>
-        Unidade escolhida na consulta de disponibilidade.
-      </p>
-    </div>
-
-  </div>
-
-  <div className={styles.selectedRoom}>
-
-    <div>
-      <strong>
-        Quarto #{reservaAtual.quarto?.numero}
-      </strong>
-
-      <span>
-        {reservaAtual.quarto?.categoria}
-      </span>
-    </div>
-
-    <strong>
-      R$ {Number(reservaAtual.quarto?.valor || 0).toFixed(2)}
-      / diária
-    </strong>
-
-  </div>
-
-</section>
-
-
-          {/* OBSERVAÇÕES */}
-          <section className={styles.card}>
-
-            <div className={styles.sectionTitle}>
-
-              <div className={styles.icon}>
-                📄
-              </div>
-
-              <div>
-                <h2>Observações e Notas</h2>
-
-                <p>
-                  Informações adicionais relevantes para a estadia.
-                </p>
-              </div>
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="ex. amanda@email.com"
+              />
 
             </div>
 
-            <textarea
-            value={observacoes}
-            onChange={(e) => setObservacoes(e.target.value)}
-              placeholder="Ex: Hóspede alérgico a glúten, solicita cama extra ou check-in tardio..."
-            />
+            <div className={styles.field}>
+
+              <label>
+                Telefone / Celular <span>*</span>
+              </label>
+
+              <input
+                type="tel"
+                value={telefone}
+                onChange={(e) => setTelefone(e.target.value)}
+                placeholder="(11) 99999-0000"
+              />
+
+            </div>
+
+          </div>
+
+        </section>
+
+        {/* QUARTO SELECIONADO */}
+        {reserva && (
+          <section className={styles.roomSelected}>
+
+            <div>
+              <small>QUARTO SELECIONADO</small>
+
+              <strong>{reserva.nome}</strong>
+
+              <span>
+                {reserva.tipo} • {reserva.capacidade}
+              </span>
+            </div>
+
+            <div className={styles.roomPrice}>
+              <small>DIÁRIA</small>
+              <strong>{reserva.diaria}</strong>
+            </div>
 
           </section>
+        )}
 
+        {/* AÇÕES */}
+        <div className={styles.actions}>
 
-{/* BOTÕES */}
-          <div className={styles.actions}>
+          <button
+            type="button"
+            className={styles.backButton}
+            onClick={() => router.push("/reservas")}
+          >
+            Voltar para Disponibilidade
+          </button>
 
-  <button
-    type="button"
-    className={styles.backButton}
-    onClick={() => router.push("/disponibilidade")}
-  >
-    ← Voltar
-  </button>
-
-  <button
-    type="button"
-    className={styles.advanceButton}
-    onClick={avancarParaCalculo}
-  >
-    Avançar para cálculo →
-  </button>
-
-</div>
+          <button
+            type="button"
+            className={styles.nextButton}
+            onClick={continuar}
+          >
+            Avançar para Período e Quarto
+          </button>
 
         </div>
 
-      </div>
-
+      </main>
     </div>
   );
 }
-<div className={styles.actions}>
-
-  <button
-    type="button"
-    className={styles.backButton}
-    onClick={() => router.push("/disponibilidade")}
-  >
-    ← Voltar
-  </button>
-
-  <button
-    type="button"
-    className={styles.advanceButton}
-    onClick={() => {
-
-      if (!hospede) {
-        alert("Selecione um hóspede.");
-        return;
-      }
-
-      const reserva = {
-        ...reservaAtual,
-        hospede,
-        checkIn,
-        checkOut,
-        adultos,
-        criancas,
-        observacoes
-      };
-
-      sessionStorage.setItem(
-        "reservaAtual",
-        JSON.stringify(reserva)
-      );
-
-      router.push("/financeiro/calcular");
-    }}
-  >
-    Avançar para cálculo →
-  </button>
-
-</div>

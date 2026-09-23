@@ -1,652 +1,353 @@
 .page {
-  width: 100%;
   min-height: 100vh;
-
-  padding: 18px 18px 30px;
-
-  background: #eef2f6;
-
+  background: #eef3f8;
   color: #263342;
-
+  font-family: Arial, Helvetica, sans-serif;
+  padding: 0 18px 40px;
   box-sizing: border-box;
 }
 
-
-/* =========================================
+/* =========================
    CABEÇALHO
-   ========================================= */
+========================= */
 
 .header {
+  min-height: 66px;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-
-  margin-bottom: 14px;
+  padding: 14px 2px 10px;
+  box-sizing: border-box;
 }
 
 .headerLeft {
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .breadcrumb {
   display: flex;
-  align-items: center;
   gap: 5px;
-
-  margin-bottom: 3px;
-
-  font-size: 7px;
-
-  color: #8a98a5;
-}
-
-.breadcrumb span:first-child {
-  color: #637b8c;
+  align-items: center;
+  font-size: 9px;
+  color: #8190a0;
+  margin-bottom: 5px;
 }
 
 .breadcrumb strong {
-  color: #71818e;
-  font-weight: 600;
+  color: #8b6e5b;
 }
 
 .header h1 {
   margin: 0;
-
-  color: #26364a;
-
-  font-size: 17px;
-  line-height: 1.2;
-
+  font-size: 20px;
   font-weight: 700;
+  color: #273544;
 }
 
 .header p {
-  margin: 3px 0 0;
-
-  color: #84919c;
-
-  font-size: 7px;
+  margin: 4px 0 0;
+  font-size: 10px;
+  color: #8794a2;
 }
 
 .userArea {
   display: flex;
   align-items: center;
-  gap: 8px;
-
-  padding-top: 1px;
-
-  color: #687580;
-
-  font-size: 7px;
+  gap: 10px;
+  background: white;
+  border: 1px solid #e1e6eb;
+  border-radius: 20px;
+  padding: 4px 7px 4px 13px;
+  color: #6d7884;
+  font-size: 9px;
 }
 
 .avatar {
-  width: 23px;
-  height: 23px;
-
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #967965;
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  border-radius: 50%;
-
-  background: #ad9078;
-
-  color: white;
-
-  font-size: 8px;
-  font-weight: 700;
-
-  border: 2px solid white;
-
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
+  font-weight: bold;
 }
 
-
-/* =========================================
+/* =========================
    CARD DE BUSCA
-   ========================================= */
+========================= */
 
 .searchCard {
-  width: 100%;
-
-  padding: 10px;
-
   background: #ffffff;
-
-  border-radius: 8px;
-
-  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
-
+  border: 1px solid #e0e6eb;
+  border-radius: 9px;
+  padding: 14px 13px 13px;
   margin-bottom: 12px;
 }
 
 .searchTitle {
   display: flex;
   align-items: center;
-
-  gap: 5px;
-
-  margin-bottom: 9px;
-
-  white-space: nowrap;
-}
-
-.searchTitle strong {
-  color: #3a4855;
-
-  font-size: 8px;
-  font-weight: 700;
-}
-
-.searchTitle span {
-  color: #a0aab3;
-
-  font-size: 6px;
+  gap: 6px;
+  margin-bottom: 12px;
 }
 
 .searchIcon {
-  width: 12px;
-  height: 12px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  color: #10b99f;
-
-  font-size: 13px;
-  font-weight: bold;
+  color: #16b88a;
+  font-size: 18px;
 }
 
+.searchTitle strong {
+  font-size: 11px;
+  color: #273544;
+}
 
-/* =========================================
+.searchTitle span {
+  color: #9ba5ae;
+  font-size: 8px;
+}
+
+/* =========================
    FORMULÁRIO
-   ========================================= */
+========================= */
 
 .searchForm {
   display: grid;
-
-  grid-template-columns:
-    1fr
-    1fr
-    1fr
-    1fr
-    auto;
-
-  gap: 8px;
-
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  gap: 9px;
   align-items: end;
 }
 
 .field {
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .field label {
-  display: block;
-
-  margin-bottom: 4px;
-
-  color: #586775;
-
-  font-size: 6px;
-
+  font-size: 8px;
   font-weight: 700;
+  color: #3e4b58;
 }
 
 .field label span {
-  color: #bd6c64;
+  color: #a17863;
 }
 
 .field input,
 .field select {
   width: 100%;
-  height: 27px;
-
+  height: 26px;
+  border: 1px solid #dce3e9;
+  border-radius: 5px;
+  background: #f8fafc;
   padding: 0 8px;
-
   box-sizing: border-box;
-
-  border: 1px solid #dce3e8;
-
-  border-radius: 4px;
-
-  background: #f8fafb;
-
-  color: #66747f;
-
+  color: #697684;
+  font-size: 8px;
   outline: none;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 7px;
 }
 
 .field input:focus,
 .field select:focus {
-  background: #ffffff;
-
-  border-color: #8dbbbd;
-
-  box-shadow: 0 0 0 2px rgba(34, 177, 158, 0.08);
+  border-color: #a58a76;
+  background: #fff;
 }
-
-.field select {
-  cursor: pointer;
-}
-
-
-/* =========================================
-   BOTÃO BUSCAR
-   ========================================= */
 
 .searchButton {
-  height: 27px;
-
-  padding: 0 14px;
-
+  height: 26px;
+  padding: 0 15px;
   border: none;
-
-  border-radius: 4px;
-
-  background: #8a7060;
-
+  border-radius: 5px;
+  background: #927563;
   color: white;
-
-  font-size: 7px;
-
+  font-size: 8px;
   font-weight: 700;
-
-  white-space: nowrap;
-
   cursor: pointer;
-
-  transition: 0.2s ease;
+  white-space: nowrap;
 }
 
 .searchButton:hover {
-  background: #745b4d;
+  background: #806554;
 }
 
-.searchButton:active {
-  transform: translateY(1px);
-}
-
-
-/* =========================================
+/* =========================
    ESTADO VAZIO
-   ========================================= */
+========================= */
 
 .emptyCard {
-  width: 100%;
-
-  min-height: 120px;
-
-  padding: 20px;
-
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
+  background: white;
+  border: 1px solid #e1e6eb;
+  border-radius: 9px;
+  padding: 45px 20px;
   text-align: center;
-
-  background: #ffffff;
-
-  border-radius: 8px;
-
-  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
 }
 
 .emptyIcon {
-  width: 30px;
-  height: 30px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin-bottom: 7px;
-
-  border-radius: 50%;
-
-  background: #e4f8f4;
-
-  color: #13b99e;
-
-  font-size: 13px;
+  font-size: 25px;
+  color: #a58a76;
 }
 
 .emptyCard h2 {
-  margin: 0 0 5px;
-
-  color: #52616e;
-
-  font-size: 8px;
-
-  font-weight: 700;
+  margin: 10px 0 5px;
+  font-size: 15px;
 }
 
 .emptyCard p {
-  max-width: 370px;
-
-  margin: 0;
-
-  color: #9ca7b0;
-
-  font-size: 6px;
-
-  line-height: 1.5;
+  max-width: 480px;
+  margin: auto;
+  color: #8995a1;
+  font-size: 9px;
+  line-height: 1.6;
 }
 
-.emptyCard p strong {
-  color: #7f8c97;
-}
-
-
-/* =========================================
-   CARDS DE RESUMO
-   ========================================= */
+/* =========================
+   RESUMO
+========================= */
 
 .summaryGrid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
-
   gap: 10px;
-
   margin-bottom: 12px;
 }
 
 .summaryCard {
   min-height: 38px;
-
-  display: flex;
-  align-items: center;
-
-  gap: 8px;
-
-  padding: 7px 10px;
-
-  background: #ffffff;
-
-  border-radius: 7px;
-
-  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
-}
-
-.summaryIcon {
-  width: 22px;
-  height: 22px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border-radius: 50%;
-
-  background: #e5faf6;
-
-  color: #15b99f;
-
-  font-size: 11px;
-}
-
-.summaryCard:nth-child(2) .summaryIcon {
-  background: #edf7f3;
-
-  color: #17ae91;
-}
-
-.summaryLabel {
-  display: block;
-
-  margin-bottom: 2px;
-
-  color: #9aa6af;
-
-  font-size: 5px;
-
-  font-weight: 500;
-
-  letter-spacing: 0.2px;
-}
-
-.summaryCard strong {
-  display: block;
-
-  color: #344353;
-
-  font-size: 7px;
-
-  font-weight: 700;
-}
-
-
-/* =========================================
-   RESULTADOS
-   ========================================= */
-
-.resultsCard {
-  width: 100%;
-
-  background: #ffffff;
-
+  background: white;
+  border: 1px solid #e0e6eb;
   border-radius: 8px;
-
-  padding: 11px;
-
-  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
-
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 12px;
   box-sizing: border-box;
 }
 
-.resultsCard h2 {
-  margin: 0 0 8px;
-
-  color: #344252;
-
-  font-size: 9px;
-
-  font-weight: 700;
+.summaryIcon {
+  color: #13b789;
+  font-size: 17px;
 }
 
+.summaryCard div:last-child {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
 
-/* =========================================
+.summaryLabel {
+  font-size: 7px;
+  color: #95a0ab;
+}
+
+.summaryCard strong {
+  font-size: 9px;
+  color: #344250;
+}
+
+/* =========================
+   RESULTADOS
+========================= */
+
+.resultsCard {
+  background: white;
+  border: 1px solid #e0e6eb;
+  border-radius: 9px;
+  padding: 13px;
+}
+
+.resultsCard h2 {
+  margin: 0 0 10px;
+  font-size: 10px;
+  color: #344250;
+}
+
+/* =========================
    TABELA
-   ========================================= */
+========================= */
 
 .tableWrapper {
   width: 100%;
-
   overflow-x: auto;
 }
 
 .tableWrapper table {
   width: 100%;
-
   border-collapse: collapse;
-
   table-layout: fixed;
 }
 
 .tableWrapper th {
-  padding: 5px 7px;
-
   text-align: left;
-
-  color: #82909c;
-
-  border-bottom: 1px solid #dce2e7;
-
-  font-size: 5px;
-
+  padding: 6px 8px;
+  border-bottom: 1px solid #dfe5ea;
+  color: #82909d;
+  font-size: 7px;
   font-weight: 700;
 }
 
 .tableWrapper td {
-  padding: 7px;
-
-  border-bottom: 1px solid #e7ebee;
-
-  color: #64717c;
-
-  font-size: 6px;
-
+  padding: 8px;
+  border-bottom: 1px solid #e8edf1;
+  color: #596774;
+  font-size: 7px;
   vertical-align: middle;
 }
 
-.tableWrapper tbody tr:last-child td {
+.tableWrapper tr:last-child td {
   border-bottom: none;
 }
 
-.tableWrapper tbody tr:hover {
-  background: #fafcfc;
-}
-
-
-/* LARGURAS DAS COLUNAS */
-
-.tableWrapper th:nth-child(1),
-.tableWrapper td:nth-child(1) {
-  width: 29%;
-}
-
-.tableWrapper th:nth-child(2),
-.tableWrapper td:nth-child(2) {
-  width: 12%;
-}
-
-.tableWrapper th:nth-child(3),
-.tableWrapper td:nth-child(3) {
-  width: 12%;
-}
-
-.tableWrapper th:nth-child(4),
-.tableWrapper td:nth-child(4) {
-  width: 23%;
-}
-
-.tableWrapper th:nth-child(5),
-.tableWrapper td:nth-child(5) {
-  width: 11%;
-}
-
-.tableWrapper th:nth-child(6),
-.tableWrapper td:nth-child(6) {
-  width: 13%;
-}
-
-
-/* =========================================
-   INFORMAÇÕES DO QUARTO
-   ========================================= */
-
 .roomName {
-  color: #344252;
-
-  font-size: 7px;
-
+  color: #394653;
+  font-size: 8px;
   font-weight: 700;
-
   margin-bottom: 2px;
 }
 
-.tableWrapper td small {
-  display: block;
-
-  color: #9ca7af;
-
-  font-size: 5px;
+.tableWrapper small {
+  color: #9ba5ae;
+  font-size: 6px;
 }
 
 .capacity {
+  color: #84909b;
   margin-right: 4px;
-
-  color: #83929e;
-
-  font-size: 8px;
 }
 
 .amenities {
-  color: #7c8a95;
-
-  font-size: 5px;
-
-  white-space: nowrap;
+  color: #7c8995;
+  font-size: 6px;
 }
 
 .price {
-  color: #19ad82;
-
-  font-size: 7px;
-
-  font-weight: 700;
-
-  white-space: nowrap;
+  color: #16b789;
+  font-size: 8px;
 }
 
-
-/* =========================================
-   BOTÃO RESERVAR
-   ========================================= */
-
 .reserveButton {
-  width: 78px;
   height: 22px;
-
+  min-width: 76px;
   border: none;
-
   border-radius: 4px;
-
-  background: #8a7060;
-
+  background: #917360;
   color: white;
-
-  font-size: 6px;
-
+  font-size: 7px;
   font-weight: 700;
-
   cursor: pointer;
-
-  transition: 0.2s ease;
 }
 
 .reserveButton:hover {
-  background: #735a4b;
+  background: #7e6251;
 }
 
-.reserveButton:active {
-  transform: translateY(1px);
-}
-
-
-/* =========================================
-   RODAPÉ
-   ========================================= */
-
-.footer {
-  width: 100%;
-
-  margin-top: 17px;
-
-  text-align: center;
-
-  color: #9ca7b0;
-
-  font-size: 6px;
-}
-
-
-/* =========================================
-   RESPONSIVIDADE
-   ========================================= */
+/* =========================
+   RESPONSIVO
+========================= */
 
 @media (max-width: 900px) {
-
   .searchForm {
     grid-template-columns: 1fr 1fr;
   }
@@ -654,44 +355,27 @@
   .searchButton {
     width: 100%;
   }
-
-  .summaryGrid {
-    grid-template-columns: 1fr;
-  }
-
 }
 
-
 @media (max-width: 650px) {
-
   .page {
-    padding: 14px 10px 25px;
+    padding: 0 10px 30px;
   }
 
   .header {
-    flex-direction: column;
-
-    gap: 10px;
+    align-items: flex-start;
   }
 
   .userArea {
-    align-self: flex-end;
+    display: none;
   }
 
   .searchForm {
     grid-template-columns: 1fr;
   }
 
-  .searchTitle {
-    white-space: normal;
-
-    flex-wrap: wrap;
-  }
-
-  .searchTitle span {
-    width: 100%;
-
-    padding-left: 17px;
+  .summaryGrid {
+    grid-template-columns: 1fr;
   }
 
   .tableWrapper {
@@ -699,132 +383,6 @@
   }
 
   .tableWrapper table {
-    min-width: 650px;
+    min-width: 700px;
   }
-
-}
-
-.searchGuestWrapper {
-  position: relative;
-  flex: 1;
-}
-
-.searchGuestWrapper input {
-  width: 100%;
-  height: 48px;
-
-  box-sizing: border-box;
-
-  padding: 0 14px;
-
-  border: 1px solid #d6dbe0;
-  border-radius: 6px;
-
-  background: #ffffff;
-  color: #444;
-
-  font-size: 13px;
-  outline: none;
-}
-
-.searchGuestWrapper input:focus {
-  border-color: #079fe8;
-}
-
-.guestResults {
-  position: absolute;
-
-  top: calc(100% + 5px);
-  left: 0;
-  right: 0;
-
-  background: #ffffff;
-
-  border: 1px solid #dfe3e7;
-  border-radius: 6px;
-
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.10);
-
-  overflow: hidden;
-
-  z-index: 50;
-}
-
-.guestOption {
-  width: 100%;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  gap: 4px;
-
-  padding: 12px 14px;
-
-  background: #ffffff;
-
-  border: none;
-  border-bottom: 1px solid #eceff1;
-
-  text-align: left;
-
-  cursor: pointer;
-}
-
-.guestOption:hover {
-  background: #f5f8fa;
-}
-
-.guestOption strong {
-  color: #30343a;
-  font-size: 13px;
-}
-
-.guestOption span {
-  color: #969ba1;
-  font-size: 10px;
-}
-
-.guestNoResult {
-  padding: 14px;
-
-  color: #969ba1;
-
-  font-size: 11px;
-}
-
-
-.actions {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  margin-top: 20px;
-}
-
-.backButton,
-.advanceButton {
-  height: 40px;
-  padding: 0 18px;
-  border-radius: 6px;
-  font-size: 12px;
-  cursor: pointer;
-}
-
-.backButton {
-  border: 1px solid #d7dce0;
-  background: #ffffff;
-  color: #666666;
-}
-
-.advanceButton {
-  margin-left: auto;
-  border: none;
-  background: #079fe8;
-  color: #ffffff;
-  font-weight: bold;
-}
-
-.advanceButton:hover {
-  background: #078dce;
 }

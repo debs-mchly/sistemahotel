@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import styles from "./reservas.module.css";
 
 export default function ReservasPage() {
+  const router = useRouter();
+
   const [dataEntrada, setDataEntrada] = useState("");
   const [dataSaida, setDataSaida] = useState("");
   const [tipoQuarto, setTipoQuarto] = useState("Todos os tipos");
@@ -12,6 +15,7 @@ export default function ReservasPage() {
 
   const quartos = [
     {
+      id: 101,
       nome: "Suíte Standard 101",
       tipo: "Standard Single",
       localizacao: "1º Andar",
@@ -20,6 +24,7 @@ export default function ReservasPage() {
       diaria: "R$ 180,00",
     },
     {
+      id: 202,
       nome: "Suíte Executiva 202",
       tipo: "Executive Double",
       localizacao: "2º Andar",
@@ -28,6 +33,7 @@ export default function ReservasPage() {
       diaria: "R$ 250,00",
     },
     {
+      id: 305,
       nome: "Premium Master 305",
       tipo: "Master Suíte Jacuzzi",
       localizacao: "3º Andar",
@@ -43,7 +49,20 @@ export default function ReservasPage() {
   }
 
   function handleReservar(quarto) {
-    alert(`Reserva selecionada: ${quarto.nome}`);
+    const reserva = {
+      quarto,
+      dataEntrada,
+      dataSaida,
+      tipoQuarto,
+      capacidade,
+    };
+
+    sessionStorage.setItem(
+      "reservaSelecionada",
+      JSON.stringify(reserva)
+    );
+
+    router.push("/reservas/nova");
   }
 
   return (
@@ -57,20 +76,16 @@ export default function ReservasPage() {
             <span>Reservas</span>
             <span>›</span>
             <strong>
-              {buscou
-                ? "Resultados"
-                : "Consultar Disponibilidade"}
+              {buscou ? "Resultados" : "Consultar Disponibilidade"}
             </strong>
           </div>
 
           <h1>Consulta de Disponibilidade</h1>
 
           <p>
-            {buscou
-              ? "Resultados encontrados para a busca de quartos disponíveis."
-              : "Verifique o inventário de quartos e realize reservas para períodos futuros."}
+            Verifique o inventário de quartos e realize reservas para
+            períodos futuros.
           </p>
-
         </div>
 
         <div className={styles.userArea}>
@@ -82,11 +97,10 @@ export default function ReservasPage() {
         </div>
       </header>
 
-      {/* PARÂMETROS DE BUSCA */}
+      {/* PARÂMETROS */}
       <section className={styles.searchCard}>
 
         <div className={styles.searchTitle}>
-
           <div className={styles.searchIcon}>
             ⌕
           </div>
@@ -96,7 +110,6 @@ export default function ReservasPage() {
           <span>
             — Defina o período e critérios básicos de hospedagem
           </span>
-
         </div>
 
         <form
@@ -104,47 +117,38 @@ export default function ReservasPage() {
           onSubmit={handleBuscar}
         >
 
-          {/* DATA DE ENTRADA */}
+          {/* DATA ENTRADA */}
           <div className={styles.field}>
-
             <label htmlFor="entrada">
               Data de Entrada <span>*</span>
             </label>
 
-            <div className={styles.inputWrapper}>
-              <input
-                id="entrada"
-                type="date"
-                value={dataEntrada}
-                onChange={(e) => setDataEntrada(e.target.value)}
-                required
-              />
-            </div>
-
+            <input
+              id="entrada"
+              type="date"
+              value={dataEntrada}
+              onChange={(e) => setDataEntrada(e.target.value)}
+              required
+            />
           </div>
 
-          {/* DATA DE SAÍDA */}
+          {/* DATA SAÍDA */}
           <div className={styles.field}>
-
             <label htmlFor="saida">
               Data de Saída <span>*</span>
             </label>
 
-            <div className={styles.inputWrapper}>
-              <input
-                id="saida"
-                type="date"
-                value={dataSaida}
-                onChange={(e) => setDataSaida(e.target.value)}
-                required
-              />
-            </div>
-
+            <input
+              id="saida"
+              type="date"
+              value={dataSaida}
+              onChange={(e) => setDataSaida(e.target.value)}
+              required
+            />
           </div>
 
-          {/* TIPO DE QUARTO */}
+          {/* TIPO */}
           <div className={styles.field}>
-
             <label htmlFor="tipo">
               Tipo de Quarto
             </label>
@@ -160,12 +164,10 @@ export default function ReservasPage() {
               <option>Master</option>
               <option>Suíte</option>
             </select>
-
           </div>
 
           {/* CAPACIDADE */}
           <div className={styles.field}>
-
             <label htmlFor="capacidade">
               Capacidade (Pessoas)
             </label>
@@ -181,10 +183,8 @@ export default function ReservasPage() {
               <option>4 Pessoas</option>
               <option>5+ Pessoas</option>
             </select>
-
           </div>
 
-          {/* BOTÃO */}
           <button
             type="submit"
             className={styles.searchButton}
@@ -193,10 +193,9 @@ export default function ReservasPage() {
           </button>
 
         </form>
-
       </section>
 
-      {/* RESULTADO */}
+      {/* RESULTADOS */}
       {!buscou ? (
 
         <section className={styles.emptyCard}>
@@ -205,9 +204,7 @@ export default function ReservasPage() {
             ▣
           </div>
 
-          <h2>
-            Nenhuma busca realizada
-          </h2>
+          <h2>Nenhuma busca realizada</h2>
 
           <p>
             Insira as datas de entrada e saída acima e clique em
@@ -220,8 +217,7 @@ export default function ReservasPage() {
       ) : (
 
         <>
-
-          {/* CARDS DE RESUMO */}
+          {/* RESUMO */}
           <section className={styles.summaryGrid}>
 
             <div className={styles.summaryCard}>
@@ -231,7 +227,6 @@ export default function ReservasPage() {
               </div>
 
               <div>
-
                 <span className={styles.summaryLabel}>
                   QUARTOS ENCONTRADOS
                 </span>
@@ -239,7 +234,6 @@ export default function ReservasPage() {
                 <strong>
                   5 Unidades Disponíveis
                 </strong>
-
               </div>
 
             </div>
@@ -251,7 +245,6 @@ export default function ReservasPage() {
               </div>
 
               <div>
-
                 <span className={styles.summaryLabel}>
                   ORDENAR RESULTADOS
                 </span>
@@ -259,14 +252,13 @@ export default function ReservasPage() {
                 <strong>
                   Preço: Menor para Maior
                 </strong>
-
               </div>
 
             </div>
 
           </section>
 
-          {/* LISTA DE QUARTOS */}
+          {/* TABELA */}
           <section className={styles.resultsCard}>
 
             <h2>
@@ -290,12 +282,11 @@ export default function ReservasPage() {
 
                 <tbody>
 
-                  {quartos.map((quarto, index) => (
+                  {quartos.map((quarto) => (
 
-                    <tr key={index}>
+                    <tr key={quarto.id}>
 
                       <td>
-
                         <div className={styles.roomName}>
                           {quarto.nome}
                         </div>
@@ -303,7 +294,6 @@ export default function ReservasPage() {
                         <small>
                           {quarto.tipo}
                         </small>
-
                       </td>
 
                       <td>
@@ -311,29 +301,23 @@ export default function ReservasPage() {
                       </td>
 
                       <td>
-
                         <span className={styles.capacity}>
                           ♙
                         </span>
 
                         {quarto.capacidade}
-
                       </td>
 
                       <td>
-
                         <span className={styles.amenities}>
                           {quarto.comodidades}
                         </span>
-
                       </td>
 
                       <td>
-
                         <strong className={styles.price}>
                           {quarto.diaria}
                         </strong>
-
                       </td>
 
                       <td>
@@ -359,15 +343,9 @@ export default function ReservasPage() {
             </div>
 
           </section>
-
         </>
 
       )}
-
-      {/* RODAPÉ */}
-      <footer className={styles.footer}>
-        HotelPro Admin v4.2.0 • Central de Disponibilidade Real-Time • Grand Plaza Hotel
-      </footer>
 
     </main>
   );

@@ -1,0 +1,581 @@
+/* =========================================================
+   CONFIGURAÇÃO GERAL
+========================================================= */
+
+.page {
+  min-height: 100vh;
+  background: #f3f5f7;
+  color: #252525;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =========================================================
+   BARRA SUPERIOR
+========================================================= */
+
+.topbar {
+  height: 58px;
+  background: #ffffff;
+  border-bottom: 1px solid #dfe3e7;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 28px;
+  gap: 20px;
+}
+
+
+/* HOTEL */
+
+.hotel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  color: #222;
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.hotelIcon {
+  font-size: 18px;
+  color: #8d7664;
+}
+
+.hotel strong {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.topDivider {
+  color: #777;
+  font-size: 12px;
+}
+
+
+/* BUSCA */
+
+.search {
+  width: 245px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 12px;
+
+  border: 1px solid #dfe3e7;
+  border-radius: 6px;
+
+  background: #f8f9fa;
+  color: #8b8f94;
+
+  font-size: 11px;
+}
+
+
+/* USUÁRIO */
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.notification {
+  font-size: 17px;
+  color: #555;
+  cursor: pointer;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.25;
+}
+
+.userInfo strong {
+  font-size: 11px;
+  color: #252525;
+}
+
+.userInfo span {
+  font-size: 9px;
+  color: #888;
+}
+
+.userAvatar {
+  width: 32px;
+  height: 32px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #8d7664;
+  color: #fff;
+
+  font-size: 15px;
+}
+
+.arrow {
+  font-size: 14px;
+  color: #777;
+}
+
+
+/* =========================================================
+   CABEÇALHO DA PÁGINA
+========================================================= */
+
+.hero {
+  background: #a58b78;
+  color: #ffffff;
+
+  padding: 22px 38px 24px;
+
+  border-bottom: 1px solid #927866;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  margin-bottom: 9px;
+
+  font-size: 10px;
+  color: #f5eeee;
+}
+
+.breadcrumb span {
+  opacity: 0.9;
+}
+
+.breadcrumb strong {
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 27px;
+  font-weight: normal;
+
+  letter-spacing: -0.3px;
+}
+
+.hero p {
+  margin: 7px 0 0;
+
+  font-size: 11px;
+  color: #f7f2ef;
+}
+
+
+/* =========================================================
+   CONTEÚDO
+========================================================= */
+
+.content {
+  width: calc(100% - 70px);
+  max-width: 1180px;
+
+  margin: 25px auto 35px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+  background: #ffffff;
+
+  border: 1px solid #dfe3e7;
+  border-radius: 8px;
+
+  overflow: hidden;
+
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+
+/* =========================================================
+   CABEÇALHO DO CARD
+========================================================= */
+
+.cardHeader {
+  min-height: 72px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 15px 20px;
+
+  border-bottom: 1px solid #e8ebee;
+
+  background: #ffffff;
+}
+
+.cardHeader h2 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+
+  font-size: 17px;
+  font-weight: normal;
+
+  color: #2a2a2a;
+}
+
+.cardHeader p {
+  margin: 4px 0 0;
+
+  font-size: 9px;
+  color: #90959a;
+}
+
+
+/* =========================================================
+   BOTÃO NOVO CADASTRO
+========================================================= */
+
+.newButton {
+  height: 32px;
+
+  padding: 0 14px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  border: none;
+  border-radius: 6px;
+
+  background: #8d7664;
+  color: #ffffff;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: background 0.2s ease;
+}
+
+.newButton:hover {
+  background: #776050;
+}
+
+.newButton span {
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   ÁREA DE BUSCA
+========================================================= */
+
+.searchArea {
+  padding: 15px 20px 10px;
+}
+
+.searchInput {
+  width: 220px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0 10px;
+
+  border: 1px solid #dfe3e7;
+  border-radius: 6px;
+
+  background: #f8f9fa;
+
+  color: #8b8f94;
+}
+
+.searchInput span {
+  font-size: 15px;
+}
+
+.searchInput input {
+  width: 100%;
+  height: 100%;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+
+  color: #333;
+}
+
+.searchInput input::placeholder {
+  color: #adb2b7;
+}
+
+
+/* =========================================================
+   LISTA DE HÓSPEDES
+========================================================= */
+
+.guestList {
+  padding: 0 20px 15px;
+}
+
+.guestRow {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 9px 10px;
+
+  border: 1px solid #dfe3e7;
+  border-radius: 6px;
+
+  background: #f8f9fa;
+}
+
+
+/* AVATAR */
+
+.guestAvatar {
+  width: 30px;
+  height: 30px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: #e8ebef;
+  color: #7f8790;
+
+  font-size: 14px;
+}
+
+
+/* NOME */
+
+.guestName {
+  width: 80px;
+
+  flex-shrink: 0;
+
+  color: #252525;
+
+  font-size: 10px;
+}
+
+
+/* INFORMAÇÕES */
+
+.guestInfo {
+  flex: 1;
+
+  display: flex;
+  align-items: center;
+
+  gap: 24px;
+
+  min-width: 0;
+
+  color: #70767c;
+
+  font-size: 9px;
+}
+
+.guestInfo span {
+  white-space: nowrap;
+}
+
+.guestInfo strong {
+  color: #555;
+  font-weight: 600;
+}
+
+
+/* BOTÃO VISUALIZAR */
+
+.viewButton {
+  width: 25px;
+  height: 25px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #dfe3e7;
+  border-radius: 5px;
+
+  background: #ffffff;
+
+  color: #666;
+
+  font-size: 11px;
+
+  cursor: pointer;
+}
+
+.viewButton:hover {
+  background: #f0f2f4;
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .topbar {
+    padding: 0 18px;
+  }
+
+  .search {
+    width: 190px;
+  }
+
+  .content {
+    width: calc(100% - 40px);
+  }
+
+  .guestInfo {
+    gap: 12px;
+  }
+}
+
+
+@media (max-width: 700px) {
+
+  .topbar {
+    height: auto;
+    min-height: 58px;
+
+    padding: 10px 15px;
+  }
+
+  .topDivider {
+    display: none;
+  }
+
+  .search {
+    display: none;
+  }
+
+  .userInfo {
+    display: none;
+  }
+
+  .hero {
+    padding: 18px 20px 20px;
+  }
+
+  .hero h1 {
+    font-size: 23px;
+  }
+
+  .content {
+    width: calc(100% - 24px);
+
+    margin-top: 15px;
+  }
+
+  .cardHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .newButton {
+    align-self: flex-end;
+  }
+
+  .searchInput {
+    width: 100%;
+  }
+
+  .guestRow {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .guestName {
+    width: auto;
+  }
+
+  .guestInfo {
+    width: 100%;
+    padding-left: 42px;
+
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 5px;
+  }
+
+  .viewButton {
+    margin-left: auto;
+  }
+}
+
+
+@media (max-width: 430px) {
+
+  .hero h1 {
+    font-size: 21px;
+  }
+
+  .cardHeader {
+    padding: 14px;
+  }
+
+  .searchArea {
+    padding: 12px 14px 8px;
+  }
+
+  .guestList {
+    padding: 0 14px 14px;
+  }
+
+  .guestInfo {
+    padding-left: 0;
+  }
+}

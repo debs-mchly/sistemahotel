@@ -1,13 +1,546 @@
-.container {
-  padding: 40px;
+.page {
+  min-height: 100vh;
+  display: flex;
+  background: #eef2f6;
+  color: #273444;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.title {
-  margin-bottom: 30px;
+/* =========================
+   SIDEBAR
+========================= */
+
+.sidebar {
+  width: 181px;
+  min-height: 100vh;
+  background: #1c222b;
+  color: #cbd2dc;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
 }
 
-.grid {
+.logo {
+  height: 68px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: white;
+}
+
+.logoIcon {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #b08d76;
+  color: #d0ad92;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+}
+
+.logo strong {
+  display: block;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 16px;
+}
+
+.logo span {
+  display: block;
+  margin-top: 2px;
+  font-size: 7px;
+  letter-spacing: 1px;
+  color: #a58b78;
+}
+
+/* MENU */
+
+.menu {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 15px 11px;
+}
+
+.menu button {
+  width: 100%;
+  height: 34px;
+  border: none;
+  border-radius: 5px;
+  background: transparent;
+  color: #aeb8c5;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 10px;
+  text-align: left;
+  font-size: 10px;
+  cursor: pointer;
+}
+
+.menu button span {
+  width: 14px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.menu button:hover {
+  background: #282f3a;
+  color: white;
+}
+
+.active {
+  background: #2b323e !important;
+  color: white !important;
+  position: relative;
+}
+
+.active::after {
+  content: "";
+  position: absolute;
+  right: 8px;
+  top: 10px;
+  width: 3px;
+  height: 14px;
+  background: #b08d76;
+  border-radius: 3px;
+}
+
+/* PARTE INFERIOR */
+
+.sidebarBottom {
+  margin-top: auto;
+  padding: 15px 11px 20px;
+  border-top: 1px solid #303640;
+}
+
+.sidebarBottom button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #aeb8c5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  font-size: 9px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.sidebarBottom button:hover {
+  color: white;
+}
+
+/* =========================
+   MAIN
+========================= */
+
+.main {
+  flex: 1;
+  min-width: 0;
+}
+
+/* =========================
+   TOPBAR
+========================= */
+
+.topbar {
+  height: 30px;
+  background: #ffffff;
+  border-bottom: 1px solid #e0e5eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 18px;
+  box-sizing: border-box;
+}
+
+.topHotel {
+  font-size: 8px;
+  color: #4d5865;
+}
+
+.topHotel span {
+  color: #8993a0;
+}
+
+.admin {
+  height: 24px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0 4px 0 10px;
+  font-size: 8px;
+  color: #697482;
+}
+
+.adminAvatar {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  background: #9b7e6b;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  font-weight: bold;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  padding: 12px 18px 8px;
+}
+
+.breadcrumb {
+  color: #8490a0;
+  font-size: 7px;
+  margin-bottom: 3px;
+}
+
+.breadcrumb span {
+  margin: 0 6px;
+}
+
+.header h1 {
+  margin: 0;
+  color: #263444;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 23px;
+  line-height: 25px;
+}
+
+.header p {
+  margin: 2px 0 0;
+  color: #8994a2;
+  font-size: 8px;
+}
+
+/* =========================
+   RESUMO
+========================= */
+
+.summaryGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 7px;
+  padding: 0 18px 8px;
+}
+
+.summaryCard {
+  min-height: 42px;
+  background: #ffffff;
+  border: 1px solid #dce3ea;
+  border-radius: 6px;
+  padding: 7px 9px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.summaryInfo span {
+  display: block;
+  color: #8994a2;
+  font-size: 6px;
+  margin-bottom: 1px;
+}
+
+.summaryInfo strong {
+  display: block;
+  color: #26384b;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 18px;
+}
+
+.summaryCard small {
+  font-size: 6px;
+  color: #87929e;
+  text-align: right;
+}
+
+.greenText {
+  color: #20ae83 !important;
+}
+
+.redText {
+  color: #e17c76 !important;
+}
+
+.orangeText {
+  color: #d79c4c !important;
+}
+
+/* =========================
+   FILTROS
+========================= */
+
+.filters {
+  margin: 0 18px 8px;
+  min-height: 36px;
+  background: #ffffff;
+  border: 1px solid #dce3ea;
+  border-radius: 6px;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr 115px 105px 78px;
+  gap: 5px;
+  box-sizing: border-box;
+}
+
+.searchBox,
+.dateBox {
+  height: 26px;
+  border: 1px solid #d8e0e7;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+}
+
+.searchBox span,
+.dateBox span {
+  width: 25px;
+  text-align: center;
+  color: #7d8996;
+  font-size: 10px;
+}
+
+.searchBox input,
+.dateBox input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #4c5865;
+  font-size: 7px;
+}
+
+.searchBox input::placeholder {
+  color: #a2acb7;
+}
+
+.dateBox input {
+  padding-right: 4px;
+}
+
+.statusSelect {
+  height: 26px;
+  border: 1px solid #d8e0e7;
+  border-radius: 5px;
+  background: #ffffff;
+  color: #596573;
+  padding: 0 6px;
+  font-size: 7px;
+  outline: none;
+}
+
+.newRoomButton {
+  height: 26px;
+  border: none;
+  border-radius: 5px;
+  background: #9a7b67;
+  color: white;
+  font-size: 7px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.newRoomButton:hover {
+  background: #866956;
+}
+
+/* =========================
+   QUARTOS
+========================= */
+
+.roomsSection {
+  padding: 0 18px 30px;
+}
+
+.roomsSection h2 {
+  margin: 4px 0 6px;
+  color: #344150;
+  font-size: 10px;
+  font-weight: bold;
+}
+
+.secondFloor {
+  margin-top: 13px !important;
+}
+
+.roomsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+}
+
+/* =========================
+   CARD DO QUARTO
+========================= */
+
+.roomCard {
+  min-height: 113px;
+  background: #ffffff;
+  border: 1px solid #d9e1e8;
+  border-radius: 6px;
+  padding: 9px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.roomHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.roomHeader strong {
+  color: #334050;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 9px;
+}
+
+.status {
+  border-radius: 2px;
+  padding: 3px 5px;
+  font-size: 5px;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.statusLivre {
+  background: #dff6eb;
+  color: #20a776;
+}
+
+.statusOcupado {
+  background: #ffe3e3;
+  color: #e26868;
+}
+
+.statusReservado {
+  background: #dcecff;
+  color: #3980d1;
+}
+
+.statusManutencao {
+  background: #fff0d5;
+  color: #d08b28;
+}
+
+.roomInfo {
+  margin-top: 7px;
+}
+
+.roomInfo p {
+  margin: 0 0 3px;
+  color: #7e8995;
+  font-size: 6px;
+  line-height: 8px;
+}
+
+.roomInfo p span {
+  color: #65717e;
+}
+
+.detailsButton {
+  width: 100%;
+  height: 20px;
+  margin-top: auto;
+  border: none;
+  border-radius: 4px;
+  background: #e9eef3;
+  color: #3e4b59;
+  font-size: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.detailsButton:hover {
+  background: #dfe6ed;
+}
+
+/* =========================
+   VAZIO
+========================= */
+
+.empty {
+  background: white;
+  border: 1px solid #dce3ea;
+  border-radius: 6px;
+  padding: 25px;
+  text-align: center;
+  color: #8994a2;
+  font-size: 9px;
+}
+
+/* =========================
+   RESPONSIVO
+========================= */
+
+@media (max-width: 1000px) {
+  .roomsGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .summaryGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .filters {
+    grid-template-columns: 1fr 120px 110px 85px;
+  }
+}
+
+@media (max-width: 750px) {
+  .sidebar {
+    width: 155px;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .filters {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .newRoomButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .sidebar {
+    display: none;
+  }
+
+  .roomsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters {
+    grid-template-columns: 1fr;
+  }
+
+  .header h1 {
+    font-size: 20px;
+  }
 }

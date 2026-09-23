@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import styles from "./hospedes.module.css";
+import styles from "./novo.module.css";
 
 export default function CadastroHospede() {
   const router = useRouter();
@@ -33,51 +33,50 @@ export default function CadastroHospede() {
     );
 
     alert("Cadastro salvo com sucesso!");
+
     router.push("/hospedes");
   };
 
   return (
     <div className={styles.page}>
 
-      {/* TOPO */}
+      {/* =========================
+          BARRA SUPERIOR
+      ========================= */}
       <header className={styles.topbar}>
         <div className={styles.hotel}>
           <span className={styles.hotelIcon}>🏨</span>
+
           <strong>Hotel Grand Plaza</strong>
+
           <span className={styles.topDivider}>
             / Central de Reservas
           </span>
         </div>
 
-        <div className={styles.search}>
-          <span>🔍</span>
-          <span>Buscar hóspedes, quartos...</span>
-        </div>
-
-        <div className={styles.userArea}>
-          <span className={styles.notification}>🔔</span>
+        <div className={styles.topbarRight}>
 
           <div className={styles.userInfo}>
-            <strong>Carlos Mendes</strong>
-            <span>Gerente de Turno</span>
+            <strong>Painel do Administrador</strong>
           </div>
 
           <div className={styles.userAvatar}>
             👤
           </div>
-
-          <span className={styles.arrow}>⌄</span>
         </div>
       </header>
 
-      {/* CABEÇALHO */}
+      {/* =========================
+          CABEÇALHO
+      ========================= */}
       <section className={styles.hero}>
+
         <div className={styles.breadcrumb}>
-          🏠
+          <span>🏠</span>
           <span>›</span>
-          <span>Reserva</span>
+          <span>Reservas</span>
           <span>›</span>
-          <span>Nova Reserva</span>
+          <span>Novo Cadastro</span>
           <span>›</span>
           <strong>Hóspedes</strong>
         </div>
@@ -87,381 +86,331 @@ export default function CadastroHospede() {
         <p>
           Preencha as informações detalhadas para o check-in do novo cliente.
         </p>
+
       </section>
 
-      {/* CONTEÚDO PRINCIPAL */}
+      {/* =========================
+          FORMULÁRIO
+      ========================= */}
       <form onSubmit={salvarCadastro}>
-        <div className={styles.content}>
 
-          {/* COLUNA PRINCIPAL */}
-          <div className={styles.mainColumn}>
+        <main className={styles.content}>
 
-            {/* DADOS PESSOAIS */}
-            <section className={styles.card}>
-              <div className={styles.cardHeader}>
-                <div className={styles.sectionIcon}>
-                  👤
-                </div>
+          {/* =========================
+              DADOS PESSOAIS
+          ========================= */}
+          <section className={styles.card}>
 
-                <div>
-                  <h2>Dados Pessoais</h2>
-                  <p>
-                    Informações de identificação básica do hóspede
-                  </p>
-                </div>
+            <div className={styles.cardHeader}>
+
+              <div className={styles.sectionIcon}>
+                👤
               </div>
 
-              <div className={styles.formContent}>
+              <div className={styles.sectionTitle}>
+                <h2>Dados Pessoais</h2>
 
-                <div className={`${styles.field} ${styles.largeField}`}>
-                  <label className={styles.label}>
-                    Nome Completo <span>*</span>
-                  </label>
-
-                  <input
-                    id="nome"
-                    className={styles.input}
-                    type="text"
-                    placeholder="Ex: João Silva de Oliveira"
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    CPF <span>*</span>
-                  </label>
-
-                  <input
-                    id="cpf"
-                    className={styles.input}
-                    type="text"
-                    placeholder="000.000.000-00"
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Data de Nascimento
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="date"
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Gênero
-                  </label>
-
-                  <select className={styles.input}>
-                    <option>Prefiro não informar</option>
-                    <option>Feminino</option>
-                    <option>Masculino</option>
-                    <option>Outro</option>
-                  </select>
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Nacionalidade
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="Brasileira"
-                    defaultValue="Brasileira"
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    E-mail <span>*</span>
-                  </label>
-
-                  <input
-                    id="email"
-                    className={styles.input}
-                    type="email"
-                    placeholder="cliente@email.com"
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Telefone <span>*</span>
-                  </label>
-
-                  <input
-                    id="telefone"
-                    className={styles.input}
-                    type="tel"
-                    placeholder="(00) 00000-0000"
-                    required
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Documento de Identificação
-                    <span className={styles.labelSecondLine}>
-                      (RG/Passaporte)
-                    </span>
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="Número do documento"
-                  />
-                </div>
-
+                <p>
+                  Informações de identificação básica do hóspede
+                </p>
               </div>
-            </section>
-
-            {/* ENDEREÇO */}
-            <section className={styles.card}>
-              <div className={styles.cardHeader}>
-                <div className={styles.sectionIcon}>
-                  📍
-                </div>
-
-                <div>
-                  <h2>Endereço</h2>
-                  <p>
-                    Localização da residência do hóspede
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.formContent}>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    CEP
-                  </label>
-
-                  <div className={styles.inputWithButton}>
-                    <input
-                      className={styles.input}
-                      type="text"
-                      placeholder="00000-000"
-                    />
-
-                    <button
-                      type="button"
-                      className={styles.searchCepButton}
-                    >
-                      🔍
-                    </button>
-                  </div>
-                </div>
-
-                <div className={`${styles.field} ${styles.addressStreet}`}>
-                  <label className={styles.label}>
-                    Rua/Avenida
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="Logradouro"
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Número
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="123"
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Complemento
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="Apto, Bloco, etc."
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Bairro
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="Nome do bairro"
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Cidade
-                  </label>
-
-                  <input
-                    className={styles.input}
-                    type="text"
-                    placeholder="Cidade"
-                  />
-                </div>
-
-                <div className={styles.field}>
-                  <label className={styles.label}>
-                    Estado
-                  </label>
-
-                  <select className={styles.input}>
-                    <option>UF</option>
-                    <option>RO</option>
-                    <option>AC</option>
-                    <option>AM</option>
-                    <option>MT</option>
-                    <option>SP</option>
-                    <option>RJ</option>
-                  </select>
-                </div>
-
-              </div>
-            </section>
-
-            {/* OBSERVAÇÕES */}
-            <section className={styles.card}>
-              <div className={styles.cardHeader}>
-                <div className={styles.sectionIcon}>
-                  📄
-                </div>
-
-                <div>
-                  <h2>Observações</h2>
-                  <p>
-                    Notas internas, preferências ou restrições alimentares
-                  </p>
-                </div>
-              </div>
-
-              <div className={styles.observationContent}>
-                <label className={styles.label}>
-                  Notas Adicionais
-                </label>
-
-                <textarea
-                  className={styles.textarea}
-                  placeholder="Insira aqui informações relevantes como alergias, preferências de quarto ou histórico do cliente..."
-                />
-              </div>
-            </section>
-
-            {/* BOTÕES */}
-            <div className={styles.actions}>
-
-              <button
-                type="button"
-                className={styles.cancelButton}
-                onClick={() => router.push("/hospedes")}
-              >
-                × &nbsp; Cancelar
-              </button>
-
-              <button
-                type="reset"
-                className={styles.clearButton}
-              >
-                ♢ &nbsp; Limpar formulário
-              </button>
-
-              <button
-                type="submit"
-                className={styles.saveButton}
-              >
-                💾 &nbsp; Salvar cadastro
-              </button>
 
             </div>
 
-          </div>
+            <div className={styles.formContent}>
 
-          {/* COLUNA LATERAL */}
-          <aside className={styles.sideColumn}>
+              <div className={`${styles.field} ${styles.fieldName}`}>
+                <label>
+                  Nome Completo <span>*</span>
+                </label>
 
-            {/* FOTO DO PERFIL */}
-            <section className={styles.profileCard}>
-              <h2>Foto do Perfil</h2>
+                <input
+                  id="nome"
+                  type="text"
+                  placeholder="Ex: João Silva de Oliveira"
+                  required
+                />
+              </div>
 
-              <div className={styles.profilePhoto}>
-                👤
+              <div className={styles.field}>
+                <label>
+                  CPF <span>*</span>
+                </label>
 
-                <div className={styles.camera}>
-                  📷
+                <input
+                  id="cpf"
+                  type="text"
+                  placeholder="000.000.000-00"
+                  required
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>Data de Nascimento</label>
+
+                <input
+                  type="date"
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>Gênero</label>
+
+                <select defaultValue="Prefiro não informar">
+                  <option>Prefiro não informar</option>
+                  <option>Feminino</option>
+                  <option>Masculino</option>
+                  <option>Outro</option>
+                </select>
+              </div>
+
+              <div className={styles.field}>
+                <label>Nacionalidade</label>
+
+                <input
+                  type="text"
+                  defaultValue="Brasileira"
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>
+                  E-mail <span>*</span>
+                </label>
+
+                <input
+                  id="email"
+                  type="email"
+                  placeholder="cliente@email.com"
+                  required
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>
+                  Telefone <span>*</span>
+                </label>
+
+                <input
+                  id="telefone"
+                  type="tel"
+                  placeholder="(00) 00000-0000"
+                  required
+                />
+              </div>
+
+              <div className={styles.field}>
+                <label>
+                  Documento de Identificação
+                  <small>(RG/Passaporte)</small>
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Número do documento"
+                />
+              </div>
+
+            </div>
+          </section>
+
+          {/* =========================
+              ENDEREÇO
+          ========================= */}
+          <section className={styles.card}>
+
+            <div className={styles.cardHeader}>
+
+              <div className={styles.sectionIcon}>
+                📍
+              </div>
+
+              <div className={styles.sectionTitle}>
+                <h2>Endereço</h2>
+
+                <p>
+                  Localização da residência do hóspede
+                </p>
+              </div>
+
+            </div>
+
+            <div className={styles.formContent}>
+
+              <div className={styles.field}>
+                <label>CEP</label>
+
+                <div className={styles.cepGroup}>
+
+                  <input
+                    type="text"
+                    placeholder="00000-000"
+                  />
+
+                  <button
+                    type="button"
+                    className={styles.cepButton}
+                  >
+                    🔍
+                  </button>
+
                 </div>
               </div>
 
-              <p className={styles.profileHelp}>
-                Clique no ícone para capturar ou fazer upload da foto do
-                documento original.
-              </p>
+              <div className={`${styles.field} ${styles.streetField}`}>
+                <label>Rua/Avenida</label>
 
-              <div className={styles.newClient}>
-                ☆ CLIENTE NOVO
-              </div>
-            </section>
-
-            {/* RESUMO DO SISTEMA */}
-            <section className={styles.systemCard}>
-
-              <h3>
-                ⓘ &nbsp;Resumo do Sistema
-              </h3>
-
-              <div className={styles.systemRow}>
-                <span>Status do Cadastro</span>
-                <strong>Incompleto</strong>
+                <input
+                  type="text"
+                  placeholder="Logradouro"
+                />
               </div>
 
-              <div className={styles.systemRow}>
-                <span>Data de Início</span>
-                <strong>24/05/2024</strong>
+              <div className={styles.field}>
+                <label>Número</label>
+
+                <input
+                  type="text"
+                  placeholder="123"
+                />
               </div>
 
-              <div className={styles.systemRow}>
-                <span>Operador</span>
-                <strong>C. Mendes</strong>
+              <div className={styles.field}>
+                <label>Complemento</label>
+
+                <input
+                  type="text"
+                  placeholder="Apto, Bloco, etc."
+                />
               </div>
 
-              <div className={styles.systemRow}>
-                <span>Unidade</span>
-                <strong>Grand Plaza</strong>
+              <div className={styles.field}>
+                <label>Bairro</label>
+
+                <input
+                  type="text"
+                  placeholder="Nome do bairro"
+                />
               </div>
 
-              <p className={styles.systemNotice}>
-                * Campos marcados com asterisco são obrigatórios para emissão
-                da Ficha Nacional de Registro de Hóspedes (FNRH).
-              </p>
+              <div className={styles.field}>
+                <label>Cidade</label>
 
-            </section>
+                <input
+                  type="text"
+                  placeholder="Cidade"
+                />
+              </div>
 
-          </aside>
+              <div className={styles.field}>
+                <label>Estado</label>
 
-        </div>
+                <select defaultValue="UF">
+                  <option value="UF">UF</option>
+                  <option>AC</option>
+                  <option>AL</option>
+                  <option>AP</option>
+                  <option>AM</option>
+                  <option>BA</option>
+                  <option>CE</option>
+                  <option>DF</option>
+                  <option>ES</option>
+                  <option>GO</option>
+                  <option>MA</option>
+                  <option>MT</option>
+                  <option>MS</option>
+                  <option>MG</option>
+                  <option>PA</option>
+                  <option>PB</option>
+                  <option>PR</option>
+                  <option>PE</option>
+                  <option>PI</option>
+                  <option>RJ</option>
+                  <option>RN</option>
+                  <option>RS</option>
+                  <option>RO</option>
+                  <option>RR</option>
+                  <option>SC</option>
+                  <option>SP</option>
+                  <option>SE</option>
+                  <option>TO</option>
+                </select>
+              </div>
+
+            </div>
+          </section>
+
+          {/* =========================
+              OBSERVAÇÕES
+          ========================= */}
+          <section className={styles.card}>
+
+            <div className={styles.cardHeader}>
+
+              <div className={styles.sectionIcon}>
+                📄
+              </div>
+
+              <div className={styles.sectionTitle}>
+                <h2>Observações</h2>
+
+                <p>
+                  Notas internas, preferências ou restrições alimentares
+                </p>
+              </div>
+
+            </div>
+
+            <div className={styles.observationContent}>
+
+              <label>
+                Notas Adicionais
+              </label>
+
+              <textarea
+                placeholder="Insira aqui informações relevantes como alergias, preferências de quarto ou histórico do cliente..."
+              />
+
+            </div>
+
+          </section>
+
+          {/* =========================
+              BOTÕES
+          ========================= */}
+          <div className={styles.actions}>
+
+            <button
+              type="button"
+              className={styles.cancelButton}
+              onClick={() => router.push("/hospedes")}
+            >
+              Cancelar
+            </button>
+
+            <button
+              type="reset"
+              className={styles.clearButton}
+            >
+              Limpar formulário
+            </button>
+
+            <button
+              type="submit"
+              className={styles.saveButton}
+            >
+              Salvar cadastro
+            </button>
+
+          </div>
+
+        </main>
+
       </form>
 
-      {/* RODAPÉ */}
+      {/* =========================
+          RODAPÉ
+      ========================= */}
       <footer className={styles.footer}>
         HotelPro Admin v4.2.0 • Sistema de Gestão Hoteleira Profissional
       </footer>

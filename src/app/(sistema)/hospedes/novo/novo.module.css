@@ -1,209 +1,484 @@
+/* =====================================================
+   PÁGINA
+===================================================== */
+
 .page {
   min-height: 100vh;
-  background: #f1f4f8;
+  background: #eef1f5;
+  color: #252525;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.page *,
+.page *::before,
+.page *::after {
+  box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BARRA SUPERIOR
+===================================================== */
+
+.topbar {
+  height: 48px;
+  background: #ffffff;
+  border-bottom: 1px solid #d8dde3;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+}
+
+.hotel {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
   color: #20252b;
-  font-family: Arial, sans-serif;
+  font-size: 13px;
 }
 
-
-/* CABEÇALHO */
-
-.pageHeader {
-  background: #a88e7c;
-  color: white;
-  padding: 24px 40px;
+.hotelIcon {
+  font-size: 16px;
 }
 
-.breadcrumb {
-  font-size: 11px;
-  margin-bottom: 8px;
-  opacity: 0.9;
+.hotel strong {
+  font-size: 13px;
+  font-weight: 700;
 }
 
-.pageHeader h1 {
-  margin: 0;
-  font-family: Georgia, serif;
-  font-size: 27px;
-  font-weight: normal;
-}
-
-.pageHeader p {
-  margin: 6px 0 0;
+.topDivider {
+  color: #555;
   font-size: 12px;
 }
 
-
-/* CONTEÚDO */
-
-.content {
-  width: min(1000px, calc(100% - 50px));
-  margin: 20px auto 40px;
-}
-
-
-/* CARD */
-
-.card {
-  background: white;
-  border: 1px solid #e0e4e8;
-  border-radius: 7px;
-  margin-bottom: 14px;
-  overflow: hidden;
-}
-
-
-/* TÍTULO DA SEÇÃO */
-
-.sectionTitle {
+.topbarRight {
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 14px 18px;
-  border-bottom: 1px solid #e0e4e8;
+  gap: 14px;
 }
 
-.icon {
-  width: 28px;
-  height: 28px;
+.topSearch {
+  width: 190px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  padding: 0 10px;
+
+  background: #f7f8fa;
+  border: 1px solid #dce1e6;
+  border-radius: 4px;
+
+  color: #999;
+  font-size: 11px;
+}
+
+.notification {
+  font-size: 14px;
+  color: #555;
+}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  line-height: 1.2;
+}
+
+.userInfo strong {
+  font-size: 11px;
+  color: #222;
+}
+
+.userInfo span {
+  font-size: 9px;
+  color: #888;
+}
+
+.userAvatar {
+  width: 29px;
+  height: 29px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: #f0ebe7;
+  background: #7657a7;
+  border-radius: 50%;
+
+  color: white;
+  font-size: 13px;
+}
+
+
+/* =====================================================
+   CABEÇALHO MARROM
+===================================================== */
+
+.hero {
+  background: #a58b78;
+  color: white;
+
+  padding: 14px 24px 16px;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-bottom: 6px;
+
+  font-size: 8px;
+  color: #f5eeee;
+}
+
+.breadcrumb strong {
+  font-weight: 600;
+}
+
+.hero h1 {
+  margin: 0;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 21px;
+  font-weight: 500;
+
+  line-height: 1.2;
+}
+
+.hero p {
+  margin: 5px 0 0;
+
+  font-size: 9px;
+  color: #f7f1ee;
+}
+
+
+/* =====================================================
+   CONTEÚDO
+===================================================== */
+
+.content {
+  width: calc(100% - 38px);
+  max-width: 1100px;
+
+  margin: 18px auto 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.card {
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #dce1e6;
+  border-radius: 6px;
+
+  overflow: hidden;
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.025);
+}
+
+
+/* =====================================================
+   CABEÇALHO DOS CARDS
+===================================================== */
+
+.cardHeader {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 10px 14px;
+
+  border-bottom: 1px solid #e4e7eb;
+}
+
+.sectionIcon {
+  width: 27px;
+  height: 27px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f1ebe7;
   border-radius: 5px;
 
-  font-size: 14px;
+  color: #927766;
+  font-size: 12px;
+}
+
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
 }
 
 .sectionTitle h2 {
   margin: 0;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  font-weight: normal;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 12px;
+  font-weight: 500;
+
+  color: #292929;
 }
 
 .sectionTitle p {
   margin: 2px 0 0;
-  color: #888;
-  font-size: 9px;
+
+  font-size: 7px;
+  color: #858585;
 }
 
 
-/* FORMULÁRIO */
+/* =====================================================
+   ÁREA DOS CAMPOS
+===================================================== */
 
-.formGrid {
+.formContent {
+  padding: 13px 14px 15px;
+
   display: grid;
-  grid-template-columns: 1.5fr 0.8fr 0.9fr;
-  gap: 12px;
-  padding: 16px 18px;
+
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  gap: 11px 14px;
 }
 
-.addressGrid {
-  display: grid;
-  grid-template-columns: 0.7fr 1.8fr 0.7fr;
-  gap: 12px;
-  padding: 16px 18px;
-}
+
+/* =====================================================
+   CAMPOS
+===================================================== */
 
 .field {
+  min-width: 0;
+
   display: flex;
   flex-direction: column;
-  gap: 5px;
+
+  gap: 4px;
 }
 
-.field label {
-  font-size: 9px;
-  color: #303030;
+.fieldName {
+  grid-column: span 2;
 }
+
+.streetField {
+  grid-column: span 3;
+}
+
+.field label,
+.observationContent label {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+
+  min-height: 12px;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  color: #4c4c4c;
+}
+
+.field label span {
+  color: #b86650;
+}
+
+.field label small {
+  margin-left: 2px;
+
+  font-size: 7px;
+  font-weight: normal;
+
+  color: #999;
+}
+
+
+/* =====================================================
+   INPUTS E SELECTS
+===================================================== */
 
 .field input,
-.field select,
-.field textarea {
+.field select {
   width: 100%;
-  box-sizing: border-box;
+  height: 31px;
 
-  border: 1px solid #d9dee3;
-  border-radius: 5px;
+  padding: 0 9px;
+
+  border: 1px solid #d9dfe5;
+  border-radius: 4px;
 
   background: #f8f9fa;
 
-  padding: 9px 10px;
+  color: #444;
 
-  font-family: Arial, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.field input::placeholder {
+  color: #a7adb4;
+}
+
+.field input:focus,
+.field select:focus,
+.observationContent textarea:focus {
+  border-color: #ae9482;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 2px rgba(174, 148, 130, 0.12);
+}
+
+
+/* =====================================================
+   CEP
+===================================================== */
+
+.cepGroup {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cepGroup input {
+  flex: 1;
+  min-width: 0;
+}
+
+.cepButton {
+  width: 31px;
+  height: 31px;
+
+  flex-shrink: 0;
+
+  border: 1px solid #d9dfe5;
+  border-radius: 4px;
+
+  background: #f5f6f7;
+
+  cursor: pointer;
+
   font-size: 10px;
+
+  transition: background 0.2s ease;
+}
+
+.cepButton:hover {
+  background: #e9ebed;
+}
+
+
+/* =====================================================
+   OBSERVAÇÕES
+===================================================== */
+
+.observationContent {
+  padding: 13px 14px 14px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.observationContent textarea {
+  width: 100%;
+  height: 72px;
+
+  padding: 9px;
+
+  resize: vertical;
+
+  border: 1px solid #d9dfe5;
+  border-radius: 4px;
+
+  background: #f8f9fa;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
 
   color: #444;
 
   outline: none;
 }
 
-.field input:focus,
-.field select:focus,
-.field textarea:focus {
-  border-color: #a88e7c;
-  background: white;
-}
-
-.field textarea {
-  min-height: 90px;
-  resize: vertical;
+.observationContent textarea::placeholder {
+  color: #a7adb4;
 }
 
 
-/* CAMPOS QUE OCUPAM MAIS ESPAÇO */
-
-.nameField {
-  grid-column: span 1;
-}
-
-.streetField {
-  grid-column: span 1;
-}
-
-.neighborhoodField {
-  grid-column: span 1;
-}
-
-
-/* OBSERVAÇÕES */
-
-.card > .field {
-  padding: 16px 18px;
-}
-
-
-/* BOTÕES */
+/* =====================================================
+   BOTÕES
+===================================================== */
 
 .actions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+
   gap: 8px;
 
-  background: white;
-
-  border: 1px solid #e0e4e8;
-  border-radius: 7px;
-
-  padding: 12px 18px;
-
-  margin-top: 16px;
+  margin-top: 1px;
 }
 
 .cancelButton,
+.clearButton,
 .saveButton {
-  border-radius: 5px;
-  padding: 9px 18px;
+  height: 30px;
 
-  font-family: Arial, sans-serif;
-  font-size: 10px;
+  padding: 0 14px;
+
+  border-radius: 4px;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 8px;
 
   cursor: pointer;
+
+  transition: 0.2s ease;
 }
 
 .cancelButton {
-  border: 1px solid #c8cdd2;
-  background: white;
+  background: #ffffff;
+
+  border: 1px solid #cfd4da;
+
   color: #555;
 }
 
@@ -211,50 +486,124 @@
   background: #f3f4f5;
 }
 
+.clearButton {
+  background: #ffffff;
+
+  border: 1px solid #cfd4da;
+
+  color: #666;
+}
+
+.clearButton:hover {
+  background: #f3f4f5;
+}
+
 .saveButton {
-  border: none;
-  background: #967965;
-  color: white;
-  font-weight: bold;
+  background: #927663;
+
+  border: 1px solid #927663;
+
+  color: #ffffff;
+
+  font-weight: 600;
 }
 
 .saveButton:hover {
-  background: #806452;
+  background: #7f6352;
+  border-color: #7f6352;
 }
 
 
-/* RESPONSIVIDADE */
+/* =====================================================
+   RODAPÉ
+===================================================== */
 
-@media (max-width: 800px) {
+.footer {
+  width: calc(100% - 38px);
+  max-width: 1100px;
+
+  margin: 0 auto 16px;
+
+  text-align: center;
+
+  font-size: 7px;
+
+  color: #92979d;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+===================================================== */
+
+@media (max-width: 900px) {
+
+  .topSearch {
+    display: none;
+  }
+
+  .formContent {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .fieldName,
+  .streetField {
+    grid-column: span 2;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .topbar {
+    height: auto;
+    min-height: 48px;
+
+    padding: 8px 12px;
+  }
+
+  .topbarRight {
+    gap: 6px;
+  }
+
+  .userInfo,
+  .notification {
+    display: none;
+  }
+
+  .hero {
+    padding: 13px 15px;
+  }
+
+  .hero h1 {
+    font-size: 19px;
+  }
 
   .content {
-    width: calc(100% - 30px);
+    width: calc(100% - 20px);
+
+    margin-top: 12px;
   }
 
-  .formGrid,
-  .addressGrid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .pageHeader {
-    padding: 20px;
-  }
-}
-
-
-@media (max-width: 550px) {
-
-  .formGrid,
-  .addressGrid {
+  .formContent {
     grid-template-columns: 1fr;
   }
 
+  .fieldName,
+  .streetField {
+    grid-column: auto;
+  }
+
   .actions {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    align-items: stretch;
   }
 
   .cancelButton,
+  .clearButton,
   .saveButton {
     width: 100%;
   }
+
 }
