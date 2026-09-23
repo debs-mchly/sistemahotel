@@ -1,0 +1,260 @@
+.page {
+  min-height: 100vh;
+  background: #f1f4f8;
+  color: #20252b;
+  font-family: Arial, sans-serif;
+}
+
+
+/* CABEÇALHO */
+
+.pageHeader {
+  background: #a88e7c;
+  color: white;
+  padding: 24px 40px;
+}
+
+.breadcrumb {
+  font-size: 11px;
+  margin-bottom: 8px;
+  opacity: 0.9;
+}
+
+.pageHeader h1 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 27px;
+  font-weight: normal;
+}
+
+.pageHeader p {
+  margin: 6px 0 0;
+  font-size: 12px;
+}
+
+
+/* CONTEÚDO */
+
+.content {
+  width: min(1000px, calc(100% - 50px));
+  margin: 20px auto 40px;
+}
+
+
+/* CARD */
+
+.card {
+  background: white;
+  border: 1px solid #e0e4e8;
+  border-radius: 7px;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+
+/* TÍTULO DA SEÇÃO */
+
+.sectionTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e0e4e8;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #f0ebe7;
+  border-radius: 5px;
+
+  font-size: 14px;
+}
+
+.sectionTitle h2 {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  font-weight: normal;
+}
+
+.sectionTitle p {
+  margin: 2px 0 0;
+  color: #888;
+  font-size: 9px;
+}
+
+
+/* FORMULÁRIO */
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1.5fr 0.8fr 0.9fr;
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.addressGrid {
+  display: grid;
+  grid-template-columns: 0.7fr 1.8fr 0.7fr;
+  gap: 12px;
+  padding: 16px 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field label {
+  font-size: 9px;
+  color: #303030;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  border: 1px solid #d9dee3;
+  border-radius: 5px;
+
+  background: #f8f9fa;
+
+  padding: 9px 10px;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+
+  color: #444;
+
+  outline: none;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: #a88e7c;
+  background: white;
+}
+
+.field textarea {
+  min-height: 90px;
+  resize: vertical;
+}
+
+
+/* CAMPOS QUE OCUPAM MAIS ESPAÇO */
+
+.nameField {
+  grid-column: span 1;
+}
+
+.streetField {
+  grid-column: span 1;
+}
+
+.neighborhoodField {
+  grid-column: span 1;
+}
+
+
+/* OBSERVAÇÕES */
+
+.card > .field {
+  padding: 16px 18px;
+}
+
+
+/* BOTÕES */
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+
+  background: white;
+
+  border: 1px solid #e0e4e8;
+  border-radius: 7px;
+
+  padding: 12px 18px;
+
+  margin-top: 16px;
+}
+
+.cancelButton,
+.saveButton {
+  border-radius: 5px;
+  padding: 9px 18px;
+
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+
+  cursor: pointer;
+}
+
+.cancelButton {
+  border: 1px solid #c8cdd2;
+  background: white;
+  color: #555;
+}
+
+.cancelButton:hover {
+  background: #f3f4f5;
+}
+
+.saveButton {
+  border: none;
+  background: #967965;
+  color: white;
+  font-weight: bold;
+}
+
+.saveButton:hover {
+  background: #806452;
+}
+
+
+/* RESPONSIVIDADE */
+
+@media (max-width: 800px) {
+
+  .content {
+    width: calc(100% - 30px);
+  }
+
+  .formGrid,
+  .addressGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .pageHeader {
+    padding: 20px;
+  }
+}
+
+
+@media (max-width: 550px) {
+
+  .formGrid,
+  .addressGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+  }
+}

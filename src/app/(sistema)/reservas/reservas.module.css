@@ -1,569 +1,662 @@
-/* =========================
-   PÁGINA
-========================= */
-
 .page {
+  width: 100%;
   min-height: 100vh;
-  background: #f5f7f9;
-  color: #20252b;
-  font-family: Arial, sans-serif;
-}
 
+  padding: 18px 18px 30px;
 
-/* =========================
-   TOPO
-========================= */
+  background: #eef2f6;
 
-.topbar {
-  height: 65px;
-  background: #ffffff;
-  border-bottom: 1px solid #dfe3e6;
+  color: #263342;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  padding: 0 30px;
   box-sizing: border-box;
 }
 
-.hotel {
+
+/* =========================================
+   CABEÇALHO
+   ========================================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  margin-bottom: 14px;
+}
+
+.headerLeft {
+  min-width: 0;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+
+  margin-bottom: 3px;
+
+  font-size: 7px;
+
+  color: #8a98a5;
+}
+
+.breadcrumb span:first-child {
+  color: #637b8c;
+}
+
+.breadcrumb strong {
+  color: #71818e;
+  font-weight: 600;
+}
+
+.header h1 {
+  margin: 0;
+
+  color: #26364a;
+
+  font-size: 17px;
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+.header p {
+  margin: 3px 0 0;
+
+  color: #84919c;
+
+  font-size: 7px;
+}
+
+.userArea {
   display: flex;
   align-items: center;
   gap: 8px;
 
-  font-size: 15px;
+  padding-top: 1px;
+
+  color: #687580;
+
+  font-size: 7px;
 }
 
-.hotel strong {
-  color: #20252b;
-}
-
-.search {
-  width: 280px;
-
-  background: #f5f6f8;
-  border: 1px solid #e0e3e6;
-  border-radius: 6px;
-
-  padding: 10px 14px;
-
-  color: #777;
-  font-size: 12px;
-}
-
-.user {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-
-  font-size: 16px;
-}
-
-.user div {
-  display: flex;
-  flex-direction: column;
-  text-align: right;
-}
-
-.user strong {
-  font-size: 13px;
-}
-
-.user span {
-  font-size: 10px;
-  color: #777;
-}
-
-
-/* =========================
-   CABEÇALHO DA PÁGINA
-========================= */
-
-.pageHeader {
-  background: #ffffff;
-
-  padding: 28px 40px 24px;
-
-  border-bottom: 1px solid #ddd;
-}
-
-.breadcrumb {
-  color: #777;
-  font-size: 12px;
-  margin-bottom: 8px;
-}
-
-.pageHeader h1 {
-  margin: 0;
-
-  font-size: 30px;
-  font-family: Georgia, serif;
-
-  color: #20252b;
-}
-
-.pageHeader p {
-  margin: 6px 0 0;
-
-  color: #777;
-  font-size: 13px;
-}
-
-
-/* =========================
-   CONTEÚDO
-========================= */
-
-.content {
-  max-width: 1050px;
-
-  margin: 24px auto;
-  padding: 0 20px;
-
-  box-sizing: border-box;
-}
-
-.leftColumn {
-  width: 100%;
-}
-
-
-/* =========================
-   CARD
-========================= */
-
-.card {
-  background: #ffffff;
-
-  border: 1px solid #e2e5e8;
-  border-radius: 8px;
-
-  padding: 22px;
-
-  margin-bottom: 22px;
-
-  box-sizing: border-box;
-}
-
-
-/* =========================
-   TÍTULO DAS SEÇÕES
-========================= */
-
-.sectionTitle {
-  display: flex;
-  align-items: center;
-
-  gap: 12px;
-
-  margin-bottom: 20px;
-}
-
-.icon {
-  width: 34px;
-  height: 34px;
-
-  background: #e6f6ff;
-
-  border-radius: 6px;
+.avatar {
+  width: 23px;
+  height: 23px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  font-size: 17px;
-}
+  border-radius: 50%;
 
-.sectionTitle h2 {
-  margin: 0;
+  background: #ad9078;
 
-  font-size: 18px;
-  font-weight: 600;
+  color: white;
 
-  color: #20252b;
-}
+  font-size: 8px;
+  font-weight: 700;
 
-.sectionTitle p {
-  margin: 3px 0 0;
+  border: 2px solid white;
 
-  font-size: 11px;
-  color: #888;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.12);
 }
 
 
-/* =========================
-   HÓSPEDE
-========================= */
+/* =========================================
+   CARD DE BUSCA
+   ========================================= */
 
-.guestSearch {
+.searchCard {
+  width: 100%;
+
+  padding: 10px;
+
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
+
+  margin-bottom: 12px;
+}
+
+.searchTitle {
   display: flex;
   align-items: center;
-  gap: 10px;
-}
 
-.guestSearch input {
-  flex: 1;
+  gap: 5px;
 
-  height: 40px;
-
-  box-sizing: border-box;
-
-  padding: 0 12px;
-
-  border: 1px solid #d5dce0;
-  border-radius: 6px;
-
-  background: #f8f9fa;
-
-  font-size: 13px;
-  color: #333;
-
-  outline: none;
-}
-
-.guestSearch input:focus {
-  border-color: #16a5e5;
-  background: #ffffff;
-}
-
-.guestSearch input::placeholder {
-  color: #999;
-}
-
-.registerButton {
-  height: 40px;
-
-  padding: 0 16px;
-
-  border: 1px solid #d5dce0;
-  border-radius: 6px;
-
-  background: #f1f3f5;
-
-  color: #333;
-
-  font-size: 12px;
-
-  cursor: pointer;
+  margin-bottom: 9px;
 
   white-space: nowrap;
 }
 
-.registerButton:hover {
-  background: #e6e9ec;
+.searchTitle strong {
+  color: #3a4855;
+
+  font-size: 8px;
+  font-weight: 700;
 }
 
+.searchTitle span {
+  color: #a0aab3;
 
-/* =========================
-   HÓSPEDE CADASTRADO
-========================= */
+  font-size: 6px;
+}
 
-.guestSelected {
-  width: 100%;
-  min-height: 60px;
+.searchIcon {
+  width: 12px;
+  height: 12px;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+
+  color: #10b99f;
+
+  font-size: 13px;
+  font-weight: bold;
+}
+
+
+/* =========================================
+   FORMULÁRIO
+   ========================================= */
+
+.searchForm {
+  display: grid;
+
+  grid-template-columns:
+    1fr
+    1fr
+    1fr
+    1fr
+    auto;
+
+  gap: 8px;
+
+  align-items: end;
+}
+
+.field {
+  min-width: 0;
+}
+
+.field label {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #586775;
+
+  font-size: 6px;
+
+  font-weight: 700;
+}
+
+.field label span {
+  color: #bd6c64;
+}
+
+.field input,
+.field select {
+  width: 100%;
+  height: 27px;
+
+  padding: 0 8px;
 
   box-sizing: border-box;
 
-  padding: 10px 12px;
+  border: 1px solid #dce3e8;
 
-  background: #f4fbff;
+  border-radius: 4px;
 
-  border: 1px solid #bfe8fa;
-  border-radius: 6px;
+  background: #f8fafb;
+
+  color: #66747f;
+
+  outline: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 7px;
 }
 
-.guestSelected > div {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-}
-
-.guestSelected strong {
-  font-size: 13px;
-  color: #20252b;
-}
-
-.guestSelected span,
-.guestSelected small {
-  color: #777;
-  font-size: 10px;
-}
-
-.guestSelected button {
-  padding: 7px 12px;
-
-  border: 1px solid #d5dce0;
-  border-radius: 5px;
-
+.field input:focus,
+.field select:focus {
   background: #ffffff;
 
-  color: #555;
+  border-color: #8dbbbd;
 
+  box-shadow: 0 0 0 2px rgba(34, 177, 158, 0.08);
+}
+
+.field select {
   cursor: pointer;
 }
 
-.guestSelected button:hover {
-  background: #f0f2f4;
+
+/* =========================================
+   BOTÃO BUSCAR
+   ========================================= */
+
+.searchButton {
+  height: 27px;
+
+  padding: 0 14px;
+
+  border: none;
+
+  border-radius: 4px;
+
+  background: #8a7060;
+
+  color: white;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.searchButton:hover {
+  background: #745b4d;
+}
+
+.searchButton:active {
+  transform: translateY(1px);
 }
 
 
-/* =========================
-   CAMPOS
-========================= */
+/* =========================================
+   ESTADO VAZIO
+   ========================================= */
 
-.fields {
-  display: grid;
-
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-
-  gap: 16px;
-}
-
-.fields > div {
-  display: flex;
-  flex-direction: column;
-}
-
-.fieldLabel {
-  display: block;
-
-  margin-bottom: 7px;
-
-  font-size: 12px;
-  color: #333;
-}
-
-.fields input,
-.fields select {
+.emptyCard {
   width: 100%;
-  height: 38px;
 
-  padding: 0 10px;
+  min-height: 120px;
+
+  padding: 20px;
 
   box-sizing: border-box;
 
-  border: 1px solid #d5dce0;
-  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
-  background: #f8f9fa;
+  text-align: center;
 
-  font-size: 12px;
-  color: #333;
-
-  outline: none;
-}
-
-.fields input:focus,
-.fields select:focus {
-  border-color: #16a5e5;
   background: #ffffff;
+
+  border-radius: 8px;
+
+  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
+}
+
+.emptyIcon {
+  width: 30px;
+  height: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 7px;
+
+  border-radius: 50%;
+
+  background: #e4f8f4;
+
+  color: #13b99e;
+
+  font-size: 13px;
+}
+
+.emptyCard h2 {
+  margin: 0 0 5px;
+
+  color: #52616e;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.emptyCard p {
+  max-width: 370px;
+
+  margin: 0;
+
+  color: #9ca7b0;
+
+  font-size: 6px;
+
+  line-height: 1.5;
+}
+
+.emptyCard p strong {
+  color: #7f8c97;
 }
 
 
-/* =========================
-   QUARTOS
-========================= */
+/* =========================================
+   CARDS DE RESUMO
+   ========================================= */
 
-.rooms {
+.summaryGrid {
   display: grid;
 
   grid-template-columns: 1fr 1fr;
 
-  gap: 12px;
+  gap: 10px;
+
+  margin-bottom: 12px;
 }
 
-.roomCard {
-  width: 100%;
+.summaryCard {
+  min-height: 38px;
+
   display: flex;
-  gap: 12px;
-  padding: 12px;
-  border: 1px solid #d5dce0;
-  border-radius: 7px;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 7px 10px;
+
   background: #ffffff;
-  cursor: pointer;
-  text-align: left;
-  font-family: Arial, sans-serif;
-  transition: 0.2s;
+
+  border-radius: 7px;
+
+  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
 }
 
-.roomCard:hover {
-  border-color: #16a5e5;
-  background: #fafdff;
-}
+.summaryIcon {
+  width: 22px;
+  height: 22px;
 
-.roomImage {
-  width: 75px;
-  height: 75px;
-  flex-shrink: 0;
-  border-radius: 5px;
-  background: #e9ecef;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+
+  border-radius: 50%;
+
+  background: #e5faf6;
+
+  color: #15b99f;
+
+  font-size: 11px;
 }
 
-.roomInfo {
-  flex: 1;
-  min-width: 0;
+.summaryCard:nth-child(2) .summaryIcon {
+  background: #edf7f3;
+
+  color: #17ae91;
 }
 
-.roomTop {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 8px;
+.summaryLabel {
+  display: block;
+
+  margin-bottom: 2px;
+
+  color: #9aa6af;
+
+  font-size: 5px;
+
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
 }
 
-.roomTop strong {
-  font-size: 12px;
-  color: #20252b;
+.summaryCard strong {
+  display: block;
+
+  color: #344353;
+
+  font-size: 7px;
+
+  font-weight: 700;
 }
 
-.roomTop span {
-  color: #009fe3;
 
-  font-size: 12px;
-  font-weight: bold;
+/* =========================================
+   RESULTADOS
+   ========================================= */
+
+.resultsCard {
+  width: 100%;
+
+  background: #ffffff;
+
+  border-radius: 8px;
+
+  padding: 11px;
+
+  box-shadow: 0 1px 3px rgba(30, 45, 60, 0.04);
+
+  box-sizing: border-box;
+}
+
+.resultsCard h2 {
+  margin: 0 0 8px;
+
+  color: #344252;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   TABELA
+   ========================================= */
+
+.tableWrapper {
+  width: 100%;
+
+  overflow-x: auto;
+}
+
+.tableWrapper table {
+  width: 100%;
+
+  border-collapse: collapse;
+
+  table-layout: fixed;
+}
+
+.tableWrapper th {
+  padding: 5px 7px;
+
+  text-align: left;
+
+  color: #82909c;
+
+  border-bottom: 1px solid #dce2e7;
+
+  font-size: 5px;
+
+  font-weight: 700;
+}
+
+.tableWrapper td {
+  padding: 7px;
+
+  border-bottom: 1px solid #e7ebee;
+
+  color: #64717c;
+
+  font-size: 6px;
+
+  vertical-align: middle;
+}
+
+.tableWrapper tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tableWrapper tbody tr:hover {
+  background: #fafcfc;
+}
+
+
+/* LARGURAS DAS COLUNAS */
+
+.tableWrapper th:nth-child(1),
+.tableWrapper td:nth-child(1) {
+  width: 29%;
+}
+
+.tableWrapper th:nth-child(2),
+.tableWrapper td:nth-child(2) {
+  width: 12%;
+}
+
+.tableWrapper th:nth-child(3),
+.tableWrapper td:nth-child(3) {
+  width: 12%;
+}
+
+.tableWrapper th:nth-child(4),
+.tableWrapper td:nth-child(4) {
+  width: 23%;
+}
+
+.tableWrapper th:nth-child(5),
+.tableWrapper td:nth-child(5) {
+  width: 11%;
+}
+
+.tableWrapper th:nth-child(6),
+.tableWrapper td:nth-child(6) {
+  width: 13%;
+}
+
+
+/* =========================================
+   INFORMAÇÕES DO QUARTO
+   ========================================= */
+
+.roomName {
+  color: #344252;
+
+  font-size: 7px;
+
+  font-weight: 700;
+
+  margin-bottom: 2px;
+}
+
+.tableWrapper td small {
+  display: block;
+
+  color: #9ca7af;
+
+  font-size: 5px;
+}
+
+.capacity {
+  margin-right: 4px;
+
+  color: #83929e;
+
+  font-size: 8px;
+}
+
+.amenities {
+  color: #7c8a95;
+
+  font-size: 5px;
 
   white-space: nowrap;
 }
 
-.roomInfo p {
-  margin: 5px 0 8px;
-  font-size: 10px;
-  line-height: 1.4;
-  color: #888;
-}
+.price {
+  color: #19ad82;
 
-.roomInfo small {
-  display: inline-block;
-  padding: 4px 7px;
-  border-radius: 4px;
-  background: #d8f5e6;
-  color: #16834b;
-  font-size: 8px;
-  font-weight: bold;
+  font-size: 7px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
 }
 
 
-/* =========================
-   OBSERVAÇÕES
-========================= */
-
-.card textarea {
-  width: 100%;
-  min-height: 100px;
-
-  box-sizing: border-box;
-
-  padding: 12px;
-
-  border: 1px solid #d5dce0;
-  border-radius: 6px;
-
-  background: #f8f9fa;
-
-  font-family: Arial, sans-serif;
-
-  font-size: 12px;
-
-  color: #333;
-
-  resize: vertical;
-
-  outline: none;
-}
-
-.card textarea:focus {
-  border-color: #16a5e5;
-  background: #ffffff;
-}
-
-.card textarea::placeholder {
-  color: #999;
-}
-
-
-/* =========================
-   BOTÕES
-========================= */
-
-.actions {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  gap: 12px;
-
-  padding: 18px 0 30px;
-}
-
-.cancelButton,
-.reserveButton {
-  height: 42px;
-
-  padding: 0 22px;
-
-  border-radius: 6px;
-
-  font-size: 12px;
-
-  cursor: pointer;
-}
-
-.cancelButton {
-  border: 1px solid #d5dce0;
-
-  background: #ffffff;
-
-  color: #666;
-}
-
-.cancelButton:hover {
-  background: #f2f3f4;
-}
+/* =========================================
+   BOTÃO RESERVAR
+   ========================================= */
 
 .reserveButton {
+  width: 78px;
+  height: 22px;
+
   border: none;
 
-  background: #0ba3e6;
+  border-radius: 4px;
 
-  color: #ffffff;
+  background: #8a7060;
 
-  font-weight: bold;
+  color: white;
+
+  font-size: 6px;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
 }
 
 .reserveButton:hover {
-  background: #078fc9;
+  background: #735a4b;
+}
+
+.reserveButton:active {
+  transform: translateY(1px);
 }
 
 
-/* =========================
+/* =========================================
+   RODAPÉ
+   ========================================= */
+
+.footer {
+  width: 100%;
+
+  margin-top: 17px;
+
+  text-align: center;
+
+  color: #9ca7b0;
+
+  font-size: 6px;
+}
+
+
+/* =========================================
    RESPONSIVIDADE
-========================= */
+   ========================================= */
 
 @media (max-width: 900px) {
 
-  .topbar {
-    padding: 0 15px;
-  }
-
-  .search {
-    width: 200px;
-  }
-
-  .content {
-    padding: 0 15px;
-  }
-
-  .fields {
+  .searchForm {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .searchButton {
+    width: 100%;
+  }
+
+  .summaryGrid {
+    grid-template-columns: 1fr;
   }
 
 }
@@ -571,73 +664,42 @@
 
 @media (max-width: 650px) {
 
-  .topbar {
-    height: auto;
+  .page {
+    padding: 14px 10px 25px;
+  }
 
-    padding: 12px;
-
-    flex-wrap: wrap;
+  .header {
+    flex-direction: column;
 
     gap: 10px;
   }
 
-  .search {
-    order: 3;
-
-    width: 100%;
+  .userArea {
+    align-self: flex-end;
   }
 
-  .pageHeader {
-    padding: 20px;
-  }
-
-  .pageHeader h1 {
-    font-size: 24px;
-  }
-
-  .content {
-    margin-top: 15px;
-  }
-
-  .card {
-    padding: 16px;
-  }
-
-  .guestSearch {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .guestSearch input,
-  .registerButton {
-    width: 100%;
-  }
-
-  .guestSelected {
-    align-items: flex-start;
-    gap: 12px;
-  }
-
-  .fields {
+  .searchForm {
     grid-template-columns: 1fr;
   }
 
-  .rooms {
-    grid-template-columns: 1fr;
+  .searchTitle {
+    white-space: normal;
+
+    flex-wrap: wrap;
   }
 
-  .roomCard {
+  .searchTitle span {
     width: 100%;
+
+    padding-left: 17px;
   }
 
-  .actions {
-    flex-direction: column-reverse;
-    align-items: stretch;
+  .tableWrapper {
+    overflow-x: auto;
   }
 
-  .cancelButton,
-  .reserveButton {
-    width: 100%;
+  .tableWrapper table {
+    min-width: 650px;
   }
 
 }

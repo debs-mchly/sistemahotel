@@ -3,55 +3,94 @@ import Link from "next/link";
 export default function SistemaLayout({ children }) {
   return (
     <div className="sistema">
-
       <aside className="sidebar">
 
         <div className="logo">
-          🏨
-          <span>HotelPro Admin</span>
+          <span className="logoIcon">▣</span>
+
+          <div>
+            <strong>Grand Plaza</strong>
+            <small>CENTRAL DE RESERVAS</small>
+          </div>
         </div>
 
         <nav className="menu">
 
-          <Link href="/dashboard" className="menuItem ativo">
-            ▦ Dashboard
+          <Link
+            href="/dashboard"
+            className="menuItem ativo"
+          >
+            <span>▦</span>
+            Dashboard
           </Link>
 
-          <Link href="/reservas" className="menuItem">
-            <span>📅 Reservas</span>
+          <Link
+            href="/reservas"
+            className="menuItem"
+          >
+            <span>▣</span>
+            Reservas
           </Link>
 
-          <Link href="/hospedes" className="menuItem">
-            ♙ Hóspedes
+          <Link
+            href="/hospedes"
+            className="menuItem"
+          >
+            <span>♙</span>
+            Hóspedes
           </Link>
 
-          <Link href="/quartos" className="menuItem">
-            🛏️ Quartos
+          <Link
+            href="/quartos"
+            className="menuItem"
+          >
+            <span>▤</span>
+            Quartos
           </Link>
 
-          <Link href="/relatorios" className="menuItem">
-            📊 Relatório
+          <Link
+            href="/financeiro"
+            className="menuItem"
+          >
+            <span>▤</span>
+            Financeiro
+          </Link>
+
+          <Link
+            href="/relatorios"
+            className="menuItem"
+          >
+            <span>▥</span>
+            Relatórios
           </Link>
 
         </nav>
 
         <div className="menuBottom">
 
-          <Link href="/configuracoes" className="menuItem">
-            ⚙️ Configurações
+          <Link
+            href="/configuracoes"
+            className="menuItem"
+          >
+            <span>⚙</span>
+            Configurações
           </Link>
 
-          <Link href="/suporte" className="menuItem">
-            ❔ Suporte
+          <Link
+            href="/suporte"
+            className="menuItem"
+          >
+            <span>?</span>
+            Suporte
           </Link>
 
         </div>
 
       </aside>
 
-      <div className="conteudo">
+      <main className="conteudo">
         {children}
-      </div>
+      </main>
 
     </div>
   );

@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import styles from "./cadastrados.module.css";
+import styles from "./hospedes.module.css";
 
-export default function HospedesCadastrados() {
+export default function Hospedes() {
   const [hospedes] = useState(() => {
     if (typeof window === "undefined") {
       return [];
@@ -18,45 +18,51 @@ export default function HospedesCadastrados() {
   const [busca, setBusca] = useState("");
 
   const hospedesFiltrados = hospedes.filter((hospede) =>
-    hospede.nome.toLowerCase().includes(busca.toLowerCase()) ||
-    hospede.cpf.includes(busca) ||
-    hospede.email.toLowerCase().includes(busca.toLowerCase())
+    hospede.nome?.toLowerCase().includes(busca.toLowerCase()) ||
+    hospede.cpf?.includes(busca) ||
+    hospede.email?.toLowerCase().includes(busca.toLowerCase())
   );
 
   return (
     <div className={styles.page}>
 
-      {/* TOPO */}
+      {/* BARRA SUPERIOR */}
       <header className={styles.topbar}>
 
-        <div className={styles.hotel}>
-          <span className={styles.hotelIcon}>🏨</span>
-          <strong>Hotel Grand Plaza</strong>
-          <span className={styles.topDivider}>
-            / Central de Reservas
-          </span>
+        <div className={styles.topbarLeft}>
+          <span>🏨 Hotel Grand Plaza</span>
+          <span className={styles.separator}>/</span>
+          <span>Central de Reservas</span>
         </div>
 
-        <div className={styles.userArea}>
-          <span className={styles.notification}>🔔</span>
+        <div className={styles.topbarRight}>
 
-          <div className={styles.userInfo}>
-            <strong>Carlos Mendes</strong>
-            <span>Gerente de Turno</span>
+          <div className={styles.searchTop}>
+            🔍
+            <span>Buscar hóspedes, quartos...</span>
           </div>
 
-          <div className={styles.userAvatar}>
+          <div className={styles.notification}>
+            🔔
+          </div>
+
+          <div className={styles.user}>
+            <div>
+              <strong>Carlos Mendes</strong>
+              <span>Gerente de Turno</span>
+            </div>
+          </div>
+
+          <div className={styles.userIcon}>
             👤
           </div>
 
-          <span className={styles.arrow}>⌄</span>
         </div>
 
       </header>
 
-
       {/* CABEÇALHO */}
-      <section className={styles.hero}>
+      <section className={styles.pageHeader}>
 
         <div className={styles.breadcrumb}>
           🏠
@@ -73,7 +79,6 @@ export default function HospedesCadastrados() {
         </p>
 
       </section>
-
 
       {/* CONTEÚDO */}
       <main className={styles.content}>
@@ -93,41 +98,41 @@ export default function HospedesCadastrados() {
 
             <Link
               href="/hospedes/novo"
-                className={styles.newButton}
+              className={styles.newButton}
             >
-                  + Novo cadastro
+              ＋ &nbsp;Novo Cadastro
             </Link>
 
           </div>
 
+          {/* CAMPO DE BUSCA */}
+          <div className={styles.searchBox}>
 
-          {/* BUSCA */}
-          <div className={styles.toolbar}>
+            <span className={styles.searchIcon}>
+              🔍
+            </span>
 
-            <div className={styles.searchBox}>
-              <span>🔍</span>
-
-              <input
-                type="text"
-                placeholder="Buscar por nome, CPF ou e-mail..."
-                value={busca}
-                onChange={(e) => setBusca(e.target.value)}
-              />
-            </div>
-
-            <div className={styles.total}>
-              Total: <strong>{hospedes.length}</strong>
-            </div>
+            <input
+              type="text"
+              placeholder="Buscar por nome, CPF ou e-mail..."
+              value={busca}
+              onChange={(e) => setBusca(e.target.value)}
+            />
 
           </div>
 
+          {/* TOTAL */}
+          <div className={styles.total}>
+            Total: <strong>{hospedes.length}</strong>
+          </div>
 
           {/* LISTA */}
-          <div className={styles.list}>
+          <div className={styles.guestList}>
 
             {hospedesFiltrados.length === 0 ? (
 
               <div className={styles.empty}>
+
                 <div className={styles.emptyIcon}>
                   👤
                 </div>
@@ -150,8 +155,8 @@ export default function HospedesCadastrados() {
 
               hospedesFiltrados.map((hospede) => (
 
-                <article
-                  className={styles.hospede}
+                <div
+                  className={styles.guestRow}
                   key={hospede.id}
                 >
 
@@ -159,41 +164,48 @@ export default function HospedesCadastrados() {
                     👤
                   </div>
 
-
-                  <div className={styles.info}>
-
-                    <h3>{hospede.nome}</h3>
-
-                    <div className={styles.details}>
-
-                      <span>
-                        <strong>CPF:</strong>{" "}
-                        {hospede.cpf}
-                      </span>
-
-                      <span>
-                        <strong>Telefone:</strong>{" "}
-                        {hospede.telefone}
-                      </span>
-
-                      <span>
-                        <strong>E-mail:</strong>{" "}
-                        {hospede.email}
-                      </span>
-
-                    </div>
-
+                  <div className={styles.guestName}>
+                    <strong>{hospede.nome}</strong>
                   </div>
 
+                  <div className={styles.guestInfo}>
+                    <span className={styles.infoLabel}>
+                      CPF:
+                    </span>
+
+                    <span>
+                      {hospede.cpf}
+                    </span>
+                  </div>
+
+                  <div className={styles.guestInfo}>
+                    <span className={styles.infoLabel}>
+                      Telefone:
+                    </span>
+
+                    <span>
+                      {hospede.telefone}
+                    </span>
+                  </div>
+
+                  <div className={styles.guestInfo}>
+                    <span className={styles.infoLabel}>
+                      E-mail:
+                    </span>
+
+                    <span>
+                      {hospede.email}
+                    </span>
+                  </div>
 
                   <button
                     type="button"
-                    className={styles.detailsButton}
+                    className={styles.viewButton}
                   >
-                    Ver dados
+                    👁
                   </button>
 
-                </article>
+                </div>
 
               ))
 
@@ -204,7 +216,6 @@ export default function HospedesCadastrados() {
         </section>
 
       </main>
-
 
       {/* RODAPÉ */}
       <footer className={styles.footer}>

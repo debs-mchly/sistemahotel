@@ -1,89 +1,232 @@
-.sistema {
-  min-height: 100vh;
-  display: flex;
-  background: #f5f7fa;
+* {
+  box-sizing: border-box;
 }
 
-.sidebar {
-  width: 220px;
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: #eef2f6;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #20252b;
+}
+
+/* =========================================
+   SISTEMA / MENU LATERAL
+   ========================================= */
+
+.sistema {
   min-height: 100vh;
-  background: #022b43;
-  color: white;
+  width: 100%;
   display: flex;
-  flex-direction: column;
+  background: #eef2f6;
+}
+
+/* SIDEBAR */
+
+.sidebar {
   position: fixed;
   left: 0;
   top: 0;
   bottom: 0;
+
+  width: 150px;
+  min-width: 150px;
+  height: 100vh;
+
+  background: #1d222b;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 100;
+
+  overflow-y: auto;
 }
+
+/* LOGO */
 
 .logo {
   height: 64px;
+
   display: flex;
   align-items: center;
-  gap: 10px;
-  padding: 0 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  font-size: 15px;
-  font-weight: bold;
+
+  gap: 8px;
+
+  padding: 0 10px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
 }
 
-.logo:first-letter {
-  font-size: 22px;
+.logoIcon {
+  width: 22px;
+  height: 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #b7a38f;
+  border-radius: 3px;
+
+  color: #b7a38f;
+
+  font-size: 12px;
 }
+
+.logo strong {
+  display: block;
+
+  font-size: 11px;
+  line-height: 1.2;
+
+  color: white;
+}
+
+.logo small {
+  display: block;
+
+  margin-top: 2px;
+
+  font-size: 6px;
+  letter-spacing: 0.4px;
+
+  color: #8f979f;
+}
+
+/* MENU */
 
 .menu {
-  padding: 18px 10px;
+  padding: 18px 8px;
 }
 
+/* ITEM DO MENU */
+
 .menuItem {
-  display: block;
-  padding: 12px 14px;
-  margin-bottom: 5px;
-  border-radius: 6px;
-  color: #c5d4dd;
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+
+  width: 100%;
+
+  padding: 10px 9px;
+
+  margin-bottom: 4px;
+
+  border-radius: 5px;
+
+  color: #aeb7c0;
+
   text-decoration: none;
-  font-size: 13px;
+
+  font-size: 9px;
+
+  transition: 0.2s;
+}
+
+.menuItem span {
+  width: 13px;
+
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  font-size: 10px;
 }
 
 .menuItem:hover {
-  background: #074b6d;
+  background: #29313c;
   color: white;
 }
 
 .menuItem.ativo {
-  background: #075277;
+  background: #343d49;
   color: white;
 }
 
+.menuItem.ativo::after {
+  content: "";
+
+  width: 3px;
+  height: 3px;
+
+  margin-left: auto;
+
+  border-radius: 50%;
+
+  background: #c6a98d;
+}
+
+/* PARTE INFERIOR */
+
 .menuBottom {
   margin-top: auto;
-  padding: 15px 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.25);
+
+  padding: 12px 8px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+/* CONTEÚDO */
 
 .conteudo {
-  width: calc(100% - 220px);
-  margin-left: 220px;
+  width: calc(100% - 150px);
+
   min-height: 100vh;
+
+  margin-left: 150px;
+
+  background: #eef2f6;
 }
 
+/* RESPONSIVO */
+
 @media (max-width: 700px) {
+
   .sidebar {
-    width: 70px;
+    width: 65px;
+    min-width: 65px;
   }
 
-  .logo span,
+  .logo {
+    justify-content: center;
+    padding: 0;
+  }
+
+  .logo > div {
+    display: none;
+  }
+
+  .menuItem {
+    justify-content: center;
+    padding: 11px 5px;
+  }
+
+  .menuItem span {
+    font-size: 13px;
+  }
+
   .menuItem {
     font-size: 0;
   }
 
-  .menuItem {
-    text-align: center;
+  .menuItem.ativo::after {
+    display: none;
   }
 
   .conteudo {
-    width: calc(100% - 70px);
-    margin-left: 70px;
+    width: calc(100% - 65px);
+    margin-left: 65px;
   }
-}/* akilla - modifiquei o codigo
+}
