@@ -1,1011 +1,496 @@
 .dashboard {
   box-sizing: border-box;
-
   width: 100%;
-  min-height: 100vh;
-
-  display: flex;
-
+  min-height: 100%;
   background: #eef2f6;
-
   color: #273447;
-
   font-family: Arial, Helvetica, sans-serif;
 }
-
-
-/* =========================
-   SIDEBAR
-========================= */
-
-.sidebar {
-  box-sizing: border-box;
-
-  position: fixed;
-
-  left: 0;
-  top: 0;
-
-  width: 124px;
-  height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: 12px 9px;
-
-  background: #1d222b;
-
-  color: white;
-
-  z-index: 10;
-}
-
-
-.brand {
-  display: flex;
-  align-items: center;
-
-  gap: 7px;
-
-  padding: 0 3px 15px;
-
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-}
-
-
-.brandIcon {
-  width: 17px;
-  height: 17px;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  border: 1px solid #c5a994;
-  border-radius: 2px;
-
-  color: #c5a994;
-
-  font-size: 9px;
-}
-
-
-.brand strong {
-  display: block;
-
-  color: #ffffff;
-
-  font-size: 9px;
-}
-
-
-.brand span {
-  display: block;
-
-  margin-top: 2px;
-
-  color: #858d97;
-
-  font-size: 4.5px;
-
-  letter-spacing: 0.6px;
-}
-
-
-/* MENU */
-
-.navigation {
-  display: flex;
-  flex-direction: column;
-
-  gap: 3px;
-
-  margin-top: 15px;
-}
-
-
-.navItem {
-  position: relative;
-
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-
-  gap: 7px;
-
-  padding: 8px 7px;
-
-  border: 0;
-  border-radius: 4px;
-
-  background: transparent;
-
-  color: #89929e;
-
-  font-size: 7px;
-
-  text-align: left;
-
-  cursor: pointer;
-}
-
-
-.navItem:hover {
-  background: rgba(255,255,255,0.05);
-
-  color: white;
-}
-
-
-.navActive {
-  background: #303640;
-
-  color: white;
-}
-
-
-.navIcon {
-  width: 12px;
-
-  color: #8d99a6;
-
-  font-size: 8px;
-
-  text-align: center;
-}
-
-
-.navActive .navIcon {
-  color: white;
-}
-
-
-.activeIndicator {
-  position: absolute;
-
-  right: 5px;
-
-  width: 4px;
-  height: 4px;
-
-  border-radius: 50%;
-
-  background: #d3a27d;
-}
-
-
-.sidebarBottom {
-  display: flex;
-  flex-direction: column;
-
-  gap: 3px;
-
-  margin-top: auto;
-
-  padding-top: 10px;
-
-  border-top: 1px solid rgba(255,255,255,0.08);
-}
-
-
+ 
 /* =========================
    CONTEÚDO
 ========================= */
-
+ 
 .mainContent {
   box-sizing: border-box;
-
-  width: calc(100% - 124px);
-
-  min-height: 100vh;
-
-  margin-left: 124px;
-
+  width: 100%;
   padding: 20px 16px;
-
   background: #eef2f6;
 }
-
-
+ 
 /* =========================
    TOPO
 ========================= */
-
+ 
 .topbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: 9px;
 }
-
-
+ 
 .topbar h1 {
   margin: 0;
-
   color: #273447;
-
   font-size: 15px;
   font-weight: 700;
 }
-
-
+ 
 .topbar p {
   margin: 2px 0 0;
-
   color: #8b96a3;
-
   font-size: 7px;
 }
-
-
+ 
 .userProfile {
   display: flex;
   align-items: center;
-
   gap: 5px;
-
   padding: 4px 7px 4px 4px;
-
   border: 1px solid #dde3e8;
   border-radius: 15px;
-
   background: white;
-
   color: #687587;
-
   font-size: 6px;
 }
-
-
+ 
 .userAvatar {
   width: 18px;
   height: 18px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 50%;
-
   background: #aa8870;
-
   color: white;
-
   font-size: 7px;
 }
-
-
+ 
 .chevron {
   color: #8d98a4;
-
   font-size: 8px;
 }
-
-
+ 
 /* =========================
    TÍTULO SEÇÃO
 ========================= */
-
+ 
 .sectionTitle {
   margin: 0 0 5px;
-
   color: #536173;
-
   font-size: 8px;
 }
-
-
+ 
 /* =========================
    CARDS
 ========================= */
-
+ 
 .statsGrid {
   display: grid;
-
   grid-template-columns: repeat(5, minmax(0, 1fr));
-
   gap: 8px;
-
   margin-bottom: 10px;
 }
-
-
+ 
 .statCard {
   box-sizing: border-box;
-
   min-height: 61px;
-
   padding: 8px;
-
   border: 1px solid #dfe5ea;
   border-radius: 6px;
-
   background: white;
 }
-
-
+ 
 .statTop {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   margin-bottom: 7px;
 }
-
-
+ 
 .statIcon {
   width: 17px;
   height: 17px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   border-radius: 4px;
-
   font-size: 8px;
 }
-
-
-.blue {
-  background: #eaf4ff;
-  color: #3b8ff3;
-}
-
-
-.green {
-  background: #e8f8f0;
-  color: #30b77a;
-}
-
-
-.orange {
-  background: #fff3e5;
-  color: #f29a31;
-}
-
-
-.purple {
-  background: #f2edff;
-  color: #8b62d9;
-}
-
-
+ 
+.blue { background: #eaf4ff; color: #3b8ff3; }
+.green { background: #e8f8f0; color: #30b77a; }
+.orange { background: #fff3e5; color: #f29a31; }
+.purple { background: #f2edff; color: #8b62d9; }
+ 
 .positive,
 .negative,
 .normal {
   padding: 2px 4px;
-
   border-radius: 3px;
-
   font-size: 5px;
 }
-
-
-.positive {
-  background: #e7f7ef;
-
-  color: #35a973;
-}
-
-
-.negative {
-  background: #fff0f0;
-
-  color: #ed6b6b;
-}
-
-
-.normal {
-  background: #edf8f2;
-
-  color: #45a878;
-}
-
-
+ 
+.positive { background: #e7f7ef; color: #35a973; }
+.negative { background: #fff0f0; color: #ed6b6b; }
+.normal { background: #edf8f2; color: #45a878; }
+ 
 .statLabel {
   display: block;
-
   color: #7c8795;
-
   font-size: 6px;
 }
-
-
+ 
 .statValue {
   display: block;
-
   margin-top: 2px;
-
   color: #273447;
-
   font-size: 12px;
 }
-
-
+ 
 /* =========================
    GRIDS
 ========================= */
-
+ 
 .middleGrid {
   display: grid;
-
   grid-template-columns: 2fr 1fr;
-
   gap: 10px;
-
   margin-bottom: 10px;
 }
-
-
+ 
 .bottomGrid {
   display: grid;
-
   grid-template-columns: 2fr 1fr;
-
   gap: 10px;
 }
-
-
+ 
 /* =========================
    PAINEL
 ========================= */
-
+ 
 .panel {
   box-sizing: border-box;
-
   min-width: 0;
-
   padding: 10px;
-
   border: 1px solid #dfe5ea;
   border-radius: 7px;
-
   background: white;
 }
-
-
+ 
 .panelHeader {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
   margin-bottom: 8px;
 }
-
-
+ 
 .panelHeader h2 {
   margin: 0;
-
   color: #394658;
-
   font-size: 8px;
 }
-
-
+ 
 .panelHeader p {
   margin: 3px 0 0;
-
   color: #9aa4b0;
-
   font-size: 5.5px;
 }
-
-
+ 
 .period {
   padding: 4px 6px;
-
   border-radius: 4px;
-
   background: #edf6ff;
-
   color: #398bea;
-
   font-size: 5px;
 }
-
-
+ 
 /* =========================
    GRÁFICO
 ========================= */
-
+ 
 .chart {
   position: relative;
-
   height: 105px;
-
   padding-left: 26px;
 }
-
-
+ 
 .chartGrid {
   position: absolute;
-
   top: 5px;
   left: 0;
   bottom: 18px;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
   color: #a0aab5;
-
   font-size: 5px;
 }
-
-
+ 
 .chartArea {
   position: relative;
-
   height: 80px;
 }
-
-
+ 
 .chartArea::before,
 .chartArea::after {
   content: "";
-
   position: absolute;
-
   left: 0;
   right: 0;
-
   border-top: 1px dashed #e4e9ed;
 }
-
-
-.chartArea::before {
-  top: 30%;
-}
-
-
-.chartArea::after {
-  top: 65%;
-}
-
-
+ 
+.chartArea::before { top: 30%; }
+.chartArea::after { top: 65%; }
+ 
 .chartSvg {
   display: block;
-
   width: 100%;
   height: 80px;
 }
-
-
+ 
 .chartValues {
   position: absolute;
-
   top: 0;
   left: 0;
   right: 0;
-
   height: 65px;
-
   color: #3989e9;
-
   font-size: 5px;
 }
-
-
+ 
 .chartValues span {
   position: absolute;
-
   transform: translateX(-50%);
 }
-
-
+ 
 .days {
   display: flex;
   justify-content: space-between;
-
   margin-top: 2px;
-
   color: #8d98a5;
-
   font-size: 5px;
 }
-
-
+ 
 /* =========================
    STATUS QUARTOS
 ========================= */
-
+ 
 .roomStatus {
   display: flex;
   flex-direction: column;
-
   gap: 7px;
 }
-
-
+ 
 .statusRow {
   display: grid;
-
   grid-template-columns: 72px 1fr 15px;
-
   align-items: center;
-
   gap: 6px;
-
   color: #6d7887;
-
   font-size: 6px;
 }
-
-
+ 
 .statusRow span {
   display: flex;
   align-items: center;
-
   gap: 4px;
 }
-
-
+ 
 .statusRow strong {
   color: #536071;
-
   font-size: 6px;
-
   text-align: right;
 }
-
-
+ 
 .statusRow i {
   width: 4px;
   height: 4px;
-
   border-radius: 50%;
 }
-
-
-.dotGreen {
-  background: #35c17c;
-}
-
-
-.dotBlue {
-  background: #3c9af2;
-}
-
-
-.dotOrange {
-  background: #f2a342;
-}
-
-
-.dotRed {
-  background: #ef6262;
-}
-
-
-.dotGray {
-  background: #9da6b1;
-}
-
-
+ 
+.dotGreen { background: #35c17c; }
+.dotBlue { background: #3c9af2; }
+.dotOrange { background: #f2a342; }
+.dotRed { background: #ef6262; }
+.dotGray { background: #9da6b1; }
+ 
 .statusBar {
   height: 4px;
-
   overflow: hidden;
-
   border-radius: 4px;
-
   background: #e5e9ed;
 }
-
-
+ 
 .statusBar div {
   height: 100%;
-
   border-radius: 4px;
 }
-
-
-.barGreen {
-  background: #35c17c;
-}
-
-
-.barBlue {
-  background: #3c9af2;
-}
-
-
-.barOrange {
-  background: #f2a342;
-}
-
-
-.barRed {
-  background: #ef6262;
-}
-
-
-.barGray {
-  background: #9da6b1;
-}
-
-
+ 
+.barGreen { background: #35c17c; }
+.barBlue { background: #3c9af2; }
+.barOrange { background: #f2a342; }
+.barRed { background: #ef6262; }
+.barGray { background: #9da6b1; }
+ 
 .totalRooms {
   display: flex;
   justify-content: space-between;
-
   margin-top: 10px;
   padding-top: 7px;
-
   border-top: 1px solid #edf0f3;
-
   color: #9aa4b0;
-
   font-size: 5.5px;
 }
-
-
+ 
 .totalRooms strong {
   color: #526071;
-
   font-size: 8px;
 }
-
-
+ 
 /* =========================
    RESERVAS
 ========================= */
-
+ 
 .viewAll {
   border: none;
-
   background: transparent;
-
   color: #398bea;
-
   font-size: 5.5px;
-
   cursor: pointer;
 }
-
-
+ 
 .tableHeader,
 .tableRow {
   display: grid;
-
   grid-template-columns: 1.7fr 1fr 1fr 1fr .9fr;
-
   align-items: center;
-
   gap: 7px;
 }
-
-
+ 
 .tableHeader {
   padding-bottom: 6px;
-
   border-bottom: 1px solid #edf0f3;
-
   color: #8d98a5;
-
   font-size: 5px;
 }
-
-
+ 
 .tableRow {
   min-height: 27px;
-
   border-bottom: 1px solid #f0f2f5;
-
   color: #657284;
-
   font-size: 5.5px;
 }
-
-
+ 
 .tableRow:last-child {
   border-bottom: 0;
 }
-
-
+ 
 .guest strong {
   display: block;
-
   color: #455265;
-
   font-size: 6px;
 }
-
-
+ 
 .guest small {
   display: block;
-
   margin-top: 2px;
-
   color: #a1aab5;
-
   font-size: 4.5px;
 }
-
-
+ 
 .confirmed,
 .waiting {
   display: inline-block;
-
   padding: 3px 5px;
-
   border-radius: 4px;
-
   font-size: 4.5px;
-
   font-weight: 400;
 }
-
-
-.confirmed {
-  background: #e5f8ef;
-
-  color: #2eb578;
-}
-
-
-.waiting {
-  background: #fff2d8;
-
-  color: #d99918;
-}
-
-
+ 
+.confirmed { background: #e5f8ef; color: #2eb578; }
+.waiting { background: #fff2d8; color: #d99918; }
+ 
 /* =========================
    ALERTAS
 ========================= */
-
+ 
 .alerts {
   display: flex;
   flex-direction: column;
-
   gap: 7px;
 }
-
-
+ 
 .alert {
   display: flex;
-
   gap: 8px;
-
   padding: 8px;
-
   border-radius: 6px;
 }
-
-
-.warning {
-  background: #fff2c9;
-}
-
-
-.info {
-  background: #edf7ff;
-}
-
-
+ 
+.warning { background: #fff2c9; }
+.info { background: #edf7ff; }
+ 
 .alertIcon {
   width: 15px;
   height: 15px;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   flex-shrink: 0;
-
   border-radius: 50%;
-
   font-size: 7px;
   font-weight: 700;
 }
-
-
-.warning .alertIcon {
-  background: #f7c94e;
-
-  color: white;
-}
-
-
-.info .alertIcon {
-  background: #4aa7ed;
-
-  color: white;
-}
-
-
+ 
+.warning .alertIcon { background: #f7c94e; color: white; }
+.info .alertIcon { background: #4aa7ed; color: white; }
+ 
 .alert strong {
   display: block;
-
   color: #596373;
-
   font-size: 6px;
-
   line-height: 1.4;
 }
-
-
+ 
 .alert span,
 .alert small {
   display: block;
-
   color: #8a94a0;
-
   font-size: 5px;
 }
-
-
+ 
 .alert small {
   margin-top: 2px;
 }
-
-
+ 
 /* =========================
    RESPONSIVO
 ========================= */
-
+ 
 @media (max-width: 850px) {
-
   .statsGrid {
     grid-template-columns: repeat(3, 1fr);
   }
-
+ 
   .middleGrid,
   .bottomGrid {
     grid-template-columns: 1fr;
   }
 }
-
-
+ 
 @media (max-width: 650px) {
-
-  .sidebar {
-    position: relative;
-
-    width: 100%;
-    height: auto;
-
-    min-height: auto;
-  }
-
-  .dashboard {
-    display: block;
-  }
-
-  .mainContent {
-    width: 100%;
-
-    margin-left: 0;
-  }
-
-  .navigation {
-    flex-direction: row;
-
-    overflow-x: auto;
-  }
-
-  .sidebarBottom {
-    display: none;
-  }
-
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-
+ 
 @media (max-width: 450px) {
-
   .statsGrid {
     grid-template-columns: 1fr;
   }
-
+ 
   .userProfile {
     display: none;
   }

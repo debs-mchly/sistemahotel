@@ -1,608 +1,429 @@
 .page {
-  min-height: 100vh;
-  background: #f1f4f8;
-  color: #263342;
-  font-family: Arial, Helvetica, sans-serif;
-  display: flex;
-}
-
-/* =====================================================
-   SIDEBAR
-===================================================== */
-
-.sidebar {
-  width: 181px;
-  min-height: 100vh;
-  background: #1c222b;
-  color: #cbd2dc;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 0;
-}
-
-.logo {
-  height: 68px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 0 20px;
-  box-sizing: border-box;
-  color: white;
-}
-
-.logoIcon {
-  width: 24px;
-  height: 24px;
-  border: 1px solid #d8dde4;
-  border-radius: 3px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 13px;
-}
-
-.logo strong {
-  display: block;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1;
-}
-
-.logo span {
-  display: block;
-  margin-top: 4px;
-  font-size: 7px;
-  letter-spacing: 1px;
-  color: #a58b78;
-}
-
-/* MENU */
-
-.menu {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 15px 11px;
-}
-
-.menu button {
-  width: 100%;
-  height: 34px;
-  border: none;
-  border-radius: 5px;
-  background: transparent;
-  color: #aeb8c5;
-  display: flex;
-  align-items: center;
-  gap: 11px;
-  padding: 0 10px;
-  text-align: left;
-  font-size: 10px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.menu button span {
-  width: 14px;
-  text-align: center;
-  font-size: 11px;
-}
-
-.menu button:hover {
-  background: #282f3a;
-  color: white;
-}
-
-.active {
-  background: #2b323e !important;
-  color: white !important;
-  position: relative;
-}
-
-.active::after {
-  content: "";
-  position: absolute;
-  right: 8px;
-  top: 10px;
-  width: 3px;
-  height: 14px;
-  background: #b08d76;
-  border-radius: 3px;
-}
-
-/* PARTE INFERIOR */
-
-.sidebarBottom {
-  margin-top: auto;
-  padding: 15px 11px 20px;
-  border-top: 1px solid #303640;
-}
-
-.sidebarBottom button {
-  width: 100%;
-  border: none;
-  background: transparent;
-  color: #aeb8c5;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px;
-  font-size: 9px;
-  text-align: left;
-  cursor: pointer;
-}
-
-.sidebarBottom button:hover {
-  color: white;
-}
-
-/* =====================================================
-   MAIN
-===================================================== */
-
-.main {
   flex: 1;
-  min-width: 0;
-  overflow-x: hidden;
-}
-
-/* =====================================================
-   TOPBAR
-===================================================== */
-
-.topbar {
-  height: 60px;
-  background: #ffffff;
-  border-bottom: 1px solid #e0e5eb;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 22px;
+  min-height: 100%;
+  padding: 18px 24px 32px;
+  background: #f1f3f6;
+  color: #1f232b;
   box-sizing: border-box;
 }
-
-.topHotel {
-  font-size: 10px;
-  color: #394452;
-}
-
-.topHotel span {
-  color: #8792a0;
-}
-
-.admin {
-  height: 34px;
-  border: 1px solid #e0e5eb;
-  border-radius: 18px;
-  background: white;
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  padding: 0 7px 0 14px;
-  font-size: 9px;
-  color: #596574;
-}
-
-.adminAvatar {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: #9b7e6b;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-/* =====================================================
-   HEADER
-===================================================== */
-
+ 
+/* ===== Cabeçalho ===== */
 .header {
-  padding: 16px 23px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  margin-bottom: 16px;
 }
-
+ 
 .breadcrumb {
-  color: #8490a0;
-  font-size: 8px;
-  margin-bottom: 5px;
+  font-size: 10.5px;
+  color: #6b7280;
 }
-
-.breadcrumb span {
-  margin: 0 6px;
-}
-
-.header h1 {
-  margin: 0;
-  color: #273444;
-  font-family: Georgia, "Times New Roman", serif;
+ 
+.title {
+  margin: 4px 0 2px;
   font-size: 22px;
-  font-weight: bold;
+  font-weight: 600;
+  color: #1f232b;
 }
-
-.header p {
-  margin: 4px 0 0;
-  color: #8a95a3;
-  font-size: 9px;
+ 
+.subtitle {
+  margin: 0;
+  font-size: 12px;
+  color: #6b7280;
 }
-
-/* =====================================================
-   ETAPAS
-===================================================== */
-
-.steps {
-  margin: 0 23px 16px;
-  min-height: 40px;
-  background: white;
-  border: 1px solid #e1e6ec;
-  border-radius: 9px;
+ 
+.userPill {
   display: flex;
   align-items: center;
-  padding: 0 12px;
-  box-sizing: border-box;
+  gap: 12px;
+  padding: 5px 5px 5px 16px;
+  background: #ffffff;
+  border: 1px solid #e3e5ea;
+  border-radius: 999px;
+  font-size: 12px;
+  color: #3a3f48;
 }
-
+ 
+.avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 38%, #e0b48f 0 28%, #3a2418 30% 100%);
+  border: 2px solid #ffffff;
+  box-shadow: 0 0 0 1px #d8d8d8;
+}
+ 
+/* ===== Etapas ===== */
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 10px;
+  margin-bottom: 18px;
+  background: #ffffff;
+  border: 1px solid #e3e5ea;
+  border-radius: 8px;
+}
+ 
+.stepWrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+ 
 .step {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
   border: none;
   background: transparent;
-  display: flex;
-  align-items: center;
-  gap: 7px;
-  color: #8994a2;
-  font-size: 9px;
-  white-space: nowrap;
-  cursor: pointer;
-  padding: 0;
+  font-family: inherit;
 }
-
-.step span {
-  width: 19px;
-  height: 19px;
-  border-radius: 50%;
-  background: #edf1f5;
-  color: #8994a2;
+ 
+button.step {
+  cursor: pointer;
+}
+ 
+.stepNumber {
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 8px;
-  font-weight: bold;
+  border-radius: 50%;
+  background: #e5e7eb;
+  color: #6b7280;
+  font-size: 10.5px;
+  font-weight: 600;
 }
-
-.stepActive {
-  color: #303b49;
+ 
+.stepLabel {
+  font-size: 12px;
+  color: #6b7280;
 }
-
-.stepActive span {
-  background: #9a7b67;
-  color: white;
+ 
+.stepActive .stepNumber {
+  background: #836957;
+  color: #ffffff;
 }
-
-.completed {
-  background: #21b88b !important;
-  color: white !important;
+ 
+.stepActive .stepLabel {
+  font-weight: 600;
+  color: #1f232b;
 }
-
-.line {
+ 
+.stepDone .stepNumber {
+  background: #e3f6ec;
+  color: #22a061;
+}
+ 
+.stepDone .stepLabel {
+  color: #3a3f48;
+}
+ 
+.stepLine {
+  width: 32px;
   height: 1px;
-  width: 55px;
-  background: #e1e5e9;
-  margin: 0 14px;
+  background: #e3e5ea;
 }
-
-/* =====================================================
-   CARD
-===================================================== */
-
+ 
+/* ===== Layout ===== */
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(240px, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+ 
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+ 
+/* ===== Cards ===== */
 .card {
-  background: white;
-  border: 1px solid #e0e5eb;
-  border-radius: 10px;
-  margin: 0 23px 12px;
-  padding: 16px;
-  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid #e3e5ea;
+  border-radius: 8px;
+  padding: 14px 14px 16px;
 }
-
-/* =====================================================
-   TÍTULO DO CARD
-===================================================== */
-
+ 
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+ 
 .cardTitle {
   display: flex;
   align-items: center;
-  gap: 9px;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #e6e9ed;
-}
-
-.titleIcon {
-  width: 23px;
-  height: 23px;
-  background: #e8f7f1;
-  color: #21b88b;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 11px;
-  flex-shrink: 0;
-}
-
-.cardTitle h2 {
-  margin: 0;
+  gap: 8px;
+  margin: 0 0 14px;
   font-size: 13px;
-  color: #354150;
-  font-weight: 700;
-}
-
-.cardTitle p {
-  display: inline;
-  margin: 0 0 0 6px;
-  color: #8b96a3;
-  font-size: 8px;
-}
-
-/* =====================================================
-   HÓSPEDE
-===================================================== */
-
-.guestInfo {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr 1.5fr 1fr;
-  gap: 15px;
-  padding-top: 13px;
-}
-
-.guestInfo small {
-  display: block;
-  color: #8995a2;
-  font-size: 7px;
-  margin-bottom: 4px;
-}
-
-.guestInfo strong {
-  color: #3d4855;
-  font-size: 9px;
   font-weight: 600;
-  word-break: break-word;
+  color: #1f232b;
 }
-
-/* =====================================================
-   FORMULÁRIO
-===================================================== */
-
-.formGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 13px;
-  padding-top: 13px;
+ 
+.cardHeader .cardTitle {
+  margin-bottom: 0;
 }
-
+ 
+.cardIcon {
+  display: flex;
+  color: #22a061;
+}
+ 
+.linked {
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  text-transform: uppercase;
+  color: #22a061;
+}
+ 
+/* ===== Hóspede ===== */
+.guest {
+  margin-top: 12px;
+}
+ 
+.guest strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f232b;
+}
+ 
+.guest span {
+  display: block;
+  margin-top: 3px;
+  font-size: 10.5px;
+  color: #6b7280;
+}
+ 
+.guest i {
+  margin: 0 6px;
+  font-style: normal;
+}
+ 
+.warning {
+  margin: 12px 0 0;
+  font-size: 11.5px;
+  color: #a56852;
+}
+ 
+.warning button {
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 600;
+  color: #836957;
+  text-decoration: underline;
+  cursor: pointer;
+}
+ 
+/* ===== Campos ===== */
 .field {
   display: flex;
   flex-direction: column;
+  gap: 8px;
 }
-
+ 
+.field + .field {
+  margin-top: 14px;
+}
+ 
 .field label {
-  display: block;
-  margin-bottom: 6px;
-  color: #414c59;
-  font-size: 9px;
-  font-weight: bold;
+  font-size: 10.5px;
+  font-weight: 600;
+  color: #1f232b;
 }
-
-.field label span {
-  color: #b46e57;
-}
-
-.field input,
+ 
 .field textarea {
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #dfe5eb;
-  border-radius: 6px;
+  min-height: 64px;
+  padding: 10px;
   background: #ffffff;
-  padding: 0 10px;
+  border: 1px solid #dfe3e8;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11.5px;
+  line-height: 1.45;
+  color: #1f232b;
   outline: none;
-  color: #394553;
-  font-size: 9px;
-  font-family: Arial, Helvetica, sans-serif;
-  transition: 0.2s;
-}
-
-.field input {
-  height: 32px;
-}
-
-.field textarea {
-  min-height: 70px;
-  padding-top: 9px;
   resize: vertical;
-}
-
-.field input:focus,
-.field textarea:focus {
-  border-color: #9a7b67;
-  box-shadow: 0 0 0 2px rgba(154, 123, 103, 0.1);
-}
-
-.field input::placeholder,
-.field textarea::placeholder {
-  color: #a5afb9;
-}
-
-/* =====================================================
-   QUARTO
-===================================================== */
-
-.room {
-  margin-top: 13px;
-  min-height: 62px;
-  border: 1px solid #e2e7ec;
-  background: #fafbfc;
-  border-radius: 7px;
-  display: grid;
-  grid-template-columns: 35px 1.8fr 1fr 1fr 90px;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
   box-sizing: border-box;
 }
-
-.roomIcon {
-  width: 30px;
-  height: 30px;
-  border-radius: 6px;
-  background: #f1ebe7;
+ 
+.field textarea::placeholder {
+  color: #9aa1ad;
+}
+ 
+.field textarea:focus,
+.selectBox select:focus {
+  border-color: #a38a74;
+}
+ 
+.selectBox {
+  position: relative;
   display: flex;
   align-items: center;
-  justify-content: center;
+}
+ 
+.selectBox select {
+  width: 100%;
+  height: 34px;
+  padding: 0 30px 0 10px;
+  appearance: none;
+  background: #ffffff;
+  border: 1px solid #dfe3e8;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 11.5px;
+  color: #1f232b;
+  outline: none;
+  cursor: pointer;
+}
+ 
+.selectIcon {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  pointer-events: none;
+  color: #3a3f48;
+}
+ 
+/* ===== Resumo financeiro ===== */
+.summary {
+  position: sticky;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 14px;
+  background: #ffffff;
+  border: 1px solid #e3e5ea;
+  border-radius: 8px;
+}
+ 
+.summaryTitle {
+  margin: 0 0 14px;
   font-size: 13px;
+  font-weight: 600;
+  color: #1f232b;
 }
-
-.roomMain strong {
-  display: block;
-  color: #34404e;
-  font-size: 10px;
+ 
+.summaryList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e3e5ea;
 }
-
-.roomMain span {
-  display: block;
-  color: #8994a2;
-  font-size: 7px;
-  margin-top: 3px;
-}
-
-.roomDetails small,
-.roomPrice small {
-  display: block;
-  color: #8b96a3;
-  font-size: 6px;
-  margin-bottom: 3px;
-}
-
-.roomDetails strong {
-  color: #45515e;
-  font-size: 8px;
-}
-
-.roomPrice {
-  text-align: right;
-}
-
-.roomPrice strong {
-  color: #20ae83;
+ 
+.summaryList div {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
   font-size: 11px;
 }
-
-.noRoom {
-  margin-top: 13px;
-  background: #fff7f3;
-  border: 1px solid #f0d8ce;
-  border-radius: 6px;
-  padding: 12px;
-  color: #a56852;
-  font-size: 9px;
+ 
+.summaryList dt {
+  color: #6b7280;
 }
-
-/* =====================================================
-   BOTÕES
-===================================================== */
-
-.actions {
-  margin: 17px 23px 25px;
+ 
+.summaryList dd {
+  margin: 0;
+  font-weight: 700;
+  color: #1f232b;
+  white-space: nowrap;
+}
+ 
+.noRoom {
+  margin: 0;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #e3e5ea;
+  font-size: 11px;
+  color: #a56852;
+}
+ 
+.total {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin: 14px 0 16px;
 }
-
-.backButton,
-.nextButton {
-  height: 34px;
-  border-radius: 6px;
-  padding: 0 16px;
-  font-size: 9px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.2s;
+ 
+.total span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #1f232b;
 }
-
+ 
+.total strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: #16a34a;
+}
+ 
+.confirmButton,
 .backButton {
-  background: transparent;
-  border: 1px solid #dfe5eb;
-  color: #728090;
+  height: 36px;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
 }
-
+ 
+.confirmButton {
+  border: none;
+  background: #836957;
+  color: #ffffff;
+}
+ 
+.confirmButton:hover {
+  background: #6f5747;
+}
+ 
+.backButton {
+  margin-top: 10px;
+  border: 1px solid #e3e5ea;
+  background: #ffffff;
+  color: #3a3f48;
+}
+ 
 .backButton:hover {
-  background: white;
+  background: #f4f5f8;
 }
-
-.nextButton {
-  background: #967966;
-  border: 1px solid #967966;
-  color: white;
-}
-
-.nextButton:hover {
-  background: #826552;
-}
-
-/* =====================================================
-   RESPONSIVO
-===================================================== */
-
+ 
+/* ===== Responsivo ===== */
 @media (max-width: 900px) {
-  .sidebar {
-    width: 155px;
+  .grid {
+    grid-template-columns: 1fr;
   }
-
-  .guestInfo {
-    grid-template-columns: 1fr 1fr;
+ 
+  .summary {
+    position: static;
   }
-
-  .room {
-    grid-template-columns: 35px 1fr 1fr;
+ 
+  .stepper {
+    flex-wrap: wrap;
   }
-
-  .roomPrice {
-    text-align: left;
-  }
-}
-
-@media (max-width: 650px) {
-  .sidebar {
+ 
+  .stepLine {
     display: none;
   }
-
-  .formGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .guestInfo {
-    grid-template-columns: 1fr;
-  }
-
-  .room {
-    grid-template-columns: 35px 1fr;
-  }
-
-  .roomDetails,
-  .roomPrice {
-    grid-column: 2;
-  }
-
-  .steps {
-    overflow-x: auto;
-  }
-
-  .actions {
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .backButton,
-  .nextButton {
-    width: 100%;
+}
+ 
+@media (max-width: 640px) {
+  .header {
+    flex-direction: column-reverse;
   }
 }
